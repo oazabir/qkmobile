@@ -8,7 +8,7 @@
   exclude-result-prefixes="xs xml xhtml"
   >
   
-	<xsl:output method="xml" version="4.0" indent="yes" disable-output-escaping="yes" encoding="UTF8"/>
+	<xsl:output method="xml" version="4.0" indent="yes" disable-output-escaping="yes" encoding="UTF8" omit-xml-declaration="yes"/>
 
 	<xsl:template match="@*|node()">
 		<xsl:copy>
@@ -16,7 +16,7 @@
 		</xsl:copy>
 	</xsl:template>
 
-	<xsl:template match="script|style|meta|footer|div[@id='fb-root']|link|div[@class='awac-wrapper']|div[@class='printfriendly']|div[@id='comments']|div[@id='widget-area']|div[@id='secondary']|div[@class='post-thumbnail']|hr">
+	<xsl:template match="script|style|meta|footer|div[@id='fb-root']|link|div[@class='awac-wrapper']|div[@class='printfriendly']|div[@id='comments']|div[@id='widget-area']|div[@class='post-thumbnail']|hr">
 	</xsl:template>
 	
 	<xsl:template match="p//*[contains(.,'পড়ো —')]">
@@ -29,7 +29,6 @@
 	<xsl:template match="a[@href='http://quranerkotha.com/wp-content/uploads/2016/10/Poro-POD.pdf']">
 	</xsl:template>
 	
- 
  
 	<xsl:template match="a/@href[contains(.,'/')]">
 		<xsl:attribute name="href">

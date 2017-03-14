@@ -1,4 +1,5 @@
-for line in $(find $1 -iname '*.html'); do 
+FOLDER=./quranerkotha.com/
+for line in $(find $FOLDER -iname '*.html'); do 
    echo "$line"
    ls -l "$line"
 	 tidy -e -utf8 -im -asxhtml -q "$line"
@@ -8,4 +9,4 @@ for line in $(find $1 -iname '*.html'); do
 	 rm "$line.out"
 done
 
-
+find $FOLDER -name '*.html' -exec sed -i 's/<?xml version="4.0" encoding="UTF8"??>//' {} \;
