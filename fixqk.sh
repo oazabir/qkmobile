@@ -8,4 +8,4 @@ for line in $(find $1 -iname '*.html'); do
 	 rm "$line.out"
 done
 
-#xsltproc --novalid --html sanitize.xslt index.html > output.html
+

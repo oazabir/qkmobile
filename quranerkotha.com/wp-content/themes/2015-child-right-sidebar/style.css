@@ -237,12 +237,12 @@ line-height: 69px;
 
 @font-face {
   font-family: 'SolaimanLipiNormal';
-  src: url('../../../../external.html?link=http://quranerkotha.com/wp-content/fonts/SolaimanLipiNormal.eot');
-  src: url('../../../../external.html?link=http://quranerkotha.com/wp-content/fonts/SolaimanLipiNormal.eot?#iefix') format('embedded-opentype'),
-       url('../../../../external.html?link=http://quranerkotha.com/wp-content/fonts/SolaimanLipiNormal.woff2') format('woff2'),
-       url('../../../../external.html?link=http://quranerkotha.com/wp-content/fonts/SolaimanLipiNormal.woff') format('woff'),
-       url('../../../../external.html?link=http://quranerkotha.com/wp-content/fonts/SolaimanLipiNormal.ttf') format('truetype'),
-       url('../../../../external.html?link=http://quranerkotha.com/wp-content/fonts/SolaimanLipiNormal.svg#SolaimanLipiNormal') format('svg');
+  src: url('../../fonts/SolaimanLipiNormal.eot');
+  src: url('../../fonts/SolaimanLipiNormal.eot?#iefix') format('embedded-opentype'),
+       url('../../fonts/SolaimanLipiNormal.woff2') format('woff2'),
+       url('../../fonts/SolaimanLipiNormal.woff') format('woff'),
+       url('../../fonts/SolaimanLipiNormal.ttf') format('truetype'),
+       url('../../fonts/SolaimanLipiNormal.svg#SolaimanLipiNormal') format('svg');
   font-weight: normal;
   font-style: normal;
 }
