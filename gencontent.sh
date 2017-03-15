@@ -8,7 +8,7 @@ wget -E -U mozilla -r --convert-links -nc --user-agent "Mozilla/5.0 (Linux; Andr
 find quranerkotha.com/ -type d -name 'feed' -exec rm -rf {} \;
 find quranerkotha.com/ -type d -name 'amp' -exec rm -rf {} \;
 
-./fixqk.sh
+./cleanupcontent.sh
 
 
 cp ./themes ./quranerkotha.com/wp-content/ -R

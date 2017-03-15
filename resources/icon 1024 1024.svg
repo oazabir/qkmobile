@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1024"
+   height="1024"
+   viewBox="0 0 1024 1024"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="icon 1024 1024.svg"
+   inkscape:export-filename="C:\Users\oazab\Documents\qkmobile\resources\icon-ios.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4">
+    <filter
+       inkscape:label="In and Out"
+       inkscape:menu="Shadows and Glows"
+       inkscape:menu-tooltip="Inner colorized shadow, outer black shadow"
+       style="color-interpolation-filters:sRGB;"
+       id="filter3464">
+      <feGaussianBlur
+         result="result0"
+         in="SourceAlpha"
+         stdDeviation="4"
+         id="feGaussianBlur3466" />
+      <feOffset
+         dx="5"
+         dy="5"
+         result="result4"
+         id="feOffset3468" />
+      <feComposite
+         in="SourceGraphic"
+         in2="result4"
+         operator="xor"
+         result="result3"
+         id="feComposite3470" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.08"
+     inkscape:cx="1331.1685"
+     inkscape:cy="-725.98341"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1216"
+     inkscape:window-height="748"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-28.362161)">
+    <ellipse
+       style="opacity:1;fill:#ffffff;fill-opacity:1"
+       id="path3376-6"
+       cx="511"
+       cy="540.36218"
+       rx="510"
+       ry="512" />
+    <ellipse
+       style="opacity:1;fill:#00ff00;fill-opacity:1"
+       id="path3376"
+       cx="517"
+       cy="542.36218"
+       rx="441"
+       ry="446" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3336-9"
+       style="font-style:normal;font-weight:normal;font-size:180px;line-height:100%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000080;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       transform="matrix(1.1182722,0,0,1.5766,-55.02277,323.7483)"><flowRegion
+         id="flowRegion3338-7"><rect
+           id="rect3340-8"
+           width="1024"
+           height="1024"
+           x="2"
+           y="4"
+           style="line-height:100%;text-align:center;text-anchor:middle;fill:#000080" /></flowRegion><flowPara
+         id="flowPara3342-2"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:100%;font-family:Nikosh2;-inkscape-font-specification:Nikosh2;text-align:center;text-anchor:middle;fill:#000080">কুরআনের </flowPara><flowPara
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:100%;font-family:Nikosh2;-inkscape-font-specification:Nikosh2;text-align:center;text-anchor:middle;fill:#000080"
+         id="flowPara3344-6">কথা </flowPara></flowRoot>  </g>
+</svg>
