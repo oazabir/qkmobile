@@ -15,6 +15,8 @@
 			<xsl:apply-templates select="@*|node()"/>
 		</xsl:copy>
 	</xsl:template>
+	
+	<xsl:template match="comment()"/>
 
 	<xsl:template match="script|style|meta|footer|div[@id='fb-root']|link|div[@class='awac-wrapper']|div[@class='printfriendly']|div[@id='comments']|div[@id='widget-area']|div[@class='post-thumbnail']|hr">
 	</xsl:template>
@@ -25,11 +27,11 @@
 		</a>
 	</xsl:template>
 	
-	<xsl:template match="a[@href='../index.html']">
+	<!--<xsl:template match="a[@href='../index.html']">
 		<xsl:attribute name="href">
 			<xsl:text>../index/index.html</xsl:text>
 		</xsl:attribute>
-	</xsl:template>
+	</xsl:template>-->
 	
 	<xsl:template match="p//*[contains(.,'পড়ো —')]">
 	</xsl:template>

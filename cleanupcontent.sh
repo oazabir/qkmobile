@@ -5,7 +5,8 @@ for line in $(find $FOLDER -iname '*.html'); do
 	 tidy -e -utf8 -im -asxhtml -q "$line"
 
 	 xsltproc --novalid --html --encoding UTF8 sanitize.xslt "$line" > "$line.out"
-	 cp -f "$line.out" "$line"
+
+   cmp --silent "$line" "$line.out" || cp -f "$line.out" "$line"
 	 rm "$line.out"
 done
 
