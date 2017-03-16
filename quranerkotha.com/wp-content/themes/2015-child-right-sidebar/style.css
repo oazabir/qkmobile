@@ -316,3 +316,5 @@ ul.small *
 .entry-content a, .entry-summary a, .page-content a, .comment-content a, .pingback .comment-body > a {
     border-bottom: 1px dotted #357ae8 !important;
 }
+
+.entry-content a:visited { color: lightgrey }
