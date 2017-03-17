@@ -1,4 +1,4 @@
-FOLDER=./quranerkotha.com/
+[[ -n "$1" ]] && FOLDER=$1 || FOLDER=./quranerkotha.com/
 for line in $(find $FOLDER -iname '*.html'); do 
    echo "$line"
    ls -l "$line"
