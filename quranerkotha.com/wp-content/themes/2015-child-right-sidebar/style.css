@@ -317,4 +317,12 @@ ul.small *
     border-bottom: 1px dotted #357ae8 !important;
 }
 
-.entry-content a:visited { color: lightgrey }
+
+.hentry.has-post-thumbnail {
+    padding-top: 8.3333%;
+		}
+
+
+.entry-content h2 {
+	margin-top: 0.9231em;
+}

@@ -316,3 +316,13 @@ ul.small *
 .entry-content a, .entry-summary a, .page-content a, .comment-content a, .pingback .comment-body > a {
     border-bottom: 1px dotted #357ae8 !important;
 }
+
+
+.hentry.has-post-thumbnail {
+    padding-top: 8.3333%;
+		}
+
+
+.entry-content h2 {
+	margin-top: 0.9231em;
+}
