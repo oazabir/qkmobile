@@ -4,7 +4,7 @@ App.info({
   id: 'com.quranerkotha.app',
   name: 'কুরআনের কথা ',
   description: 'আধুনিক মানুষের জন্য সমসাময়িক প্রশ্ন, দ্বন্দ্ব এবং ঘটনাগুলোকে কুরআনের আলোকে দেখা এবং কুরআনের আয়াতে লুকিয়ে থাকা বৈজ্ঞানিক তথ্য এবং যুক্তির উপর আলোচনা',
-  author: 'Matt Development Group',
+  author: 'Omar AL Zabir',
   email: 'omaralzabir@gmail.com',
   website: 'https://quranerkotha.com',
 	version: '1.0.1'

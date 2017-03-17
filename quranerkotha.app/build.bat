@@ -7,5 +7,5 @@ cmd /c jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 ..\appbuild\androi
 del ..\appbuild\quranerkotha.apk
 cmd /c %ANDROID_HOME%\build-tools\25.0.2\zipalign 4 ..\appbuild\android\release-signed.apk ..\appbuild\quranerkotha.apk
 copy ..\appbuild\quranerkotha.apk .\
-copy ..\appbuild\quranerkotha.app.tar.gz
+bash -c "scp -i ~/.ssh/vpsdime_rsa /mnt/c/Users/oazab/Documents/qkmobile/appbuild/quranerkotha.app.tar.gz root@vpsdime.omaralzabir.com:"
 
