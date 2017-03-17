@@ -17,5 +17,9 @@ On Windows, go to command prompt using Administrator. Then use ```mklink /D publ
 
 Go inside quranerkotha.app
 
-run the app using ```meteor run```
+Run the app using ```meteor run```. This will start a server at localhost:3000 and you can browse it on browser. 
+
+To run on Android device: ```meteor run android-device```
+
+To run using the app.quranerkotha.com server: ```meteor run android-device --mobile-server https://app.quranerkotha.com/```
 
