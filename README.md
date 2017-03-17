@@ -7,7 +7,7 @@ Install meteor.
 
 Clone the repository.
 
-Run ```npm install``` inside quranerkotha.app folder. 
+Run ```meteor npm install``` inside quranerkotha.app folder. 
 
 Create a symbolic link to map ./quranetkotha.app/public to ./quranerkotha.com folder. 
 
