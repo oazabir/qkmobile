@@ -13,7 +13,7 @@ Create a symbolic link to map ./quranetkotha.app/public to ./quranerkotha.com fo
 quranerkotha.app$ ln -s ../quranerkotha.com public
 ```
 
-On Windows, go to command prompt using Administrator. Then use ```mklink /D public ..\quranerkotha.com``` inside the auranerkotha.app folder. 
+On Windows, go to command prompt using Administrator. Then use ```mklink /D public ..\quranerkotha.com``` inside the quranerkotha.app folder. 
 
 Go inside quranerkotha.app
 
