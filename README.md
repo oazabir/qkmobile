@@ -7,9 +7,15 @@ Install meteor.
 
 Clone the repository.
 
-Create a symbolic link to map quranetkotha.app/public to quranerkotha.com folder. 
+Create a symbolic link to map ./quranetkotha.app/public to ./quranerkotha.com folder. 
 
-go inside quranerkotha.app
+```
+quranerkotha.app$ ln -s ../quranerkotha.com public
+```
+
+On Windows, go to command prompt using Administrator. Then use ```mklink /D public ..\quranerkotha.com``` inside the auranerkotha.app folder. 
+
+Go inside quranerkotha.app
 
 run the app using ```meteor run```
 
