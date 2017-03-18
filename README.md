@@ -15,8 +15,6 @@ Create a symbolic link to map ./quranetkotha.app/public to ./quranerkotha.com fo
 quranerkotha.app$ ln -s ../quranerkotha.com public
 ```
 
-On Windows, go to command prompt using Administrator. Then use ```mklink /D public ..\quranerkotha.com``` inside the quranerkotha.app folder. 
-
 Go inside quranerkotha.app
 
 Run the app using ```meteor run```. This will start a server at localhost:3000 and you can browse it on browser. 
@@ -25,3 +23,5 @@ To run on Android device: ```meteor run android-device```
 
 To run using the app.quranerkotha.com server: ```meteor run android-device --mobile-server https://app.quranerkotha.com/```
 
+
+NOTE: Does not work on Windows. File paths are more than 240 characters inside cordova folders and meteor build breaks. You can run locally though and do local development. But build will fail. 
