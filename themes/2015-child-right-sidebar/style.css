@@ -347,3 +347,5 @@ a:visited { color: lightgrey }
 .entry-title {
   margin-bottom: 0.3em;
 }  
+
+.site-title a { color: black }
