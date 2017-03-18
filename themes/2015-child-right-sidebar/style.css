@@ -237,12 +237,12 @@ line-height: 69px;
 
 @font-face {
   font-family: 'SolaimanLipiNormal';
-  src: url('../../fonts/SolaimanLipiNormal.eot');
-  src: url('../../fonts/SolaimanLipiNormal.eot?#iefix') format('embedded-opentype'),
-       url('../../fonts/SolaimanLipiNormal.woff2') format('woff2'),
-       url('../../fonts/SolaimanLipiNormal.woff') format('woff'),
-       url('../../fonts/SolaimanLipiNormal.ttf') format('truetype'),
-       url('../../fonts/SolaimanLipiNormal.svg#SolaimanLipiNormal') format('svg');
+  src: url('../fonts/SolaimanLipiNormal.eot');
+  src: url('../fonts/SolaimanLipiNormal.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/SolaimanLipiNormal.woff2') format('woff2'),
+       url('../fonts/SolaimanLipiNormal.woff') format('woff'),
+       url('../fonts/SolaimanLipiNormal.ttf') format('truetype'),
+       url('../fonts/SolaimanLipiNormal.svg#SolaimanLipiNormal') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -317,12 +317,33 @@ ul.small *
     border-bottom: 1px dotted #357ae8 !important;
 }
 
+.display-posts-listing .listing-item {
+    clear: both;
+    list-style: none; 
+}
+
+.display-posts-listing img {
+    float: left;
+    margin: 0 10px 10px 0;
+    width: 60px;
+    border: solid 1px #ddd;
+}
 
 .hentry.has-post-thumbnail {
-    padding-top: 8.3333%;
-		}
+  padding-top: 8.3333% !important;
+}   
 
 
 .entry-content h2 {
-	margin-top: 0.9231em;
+  /*margin-top: 0.9231em;*/
 }
+
+.entry-content a, .entry-summary a, .page-content a, .comment-content a, .pingback .comment-body > a { 
+    border-bottom: 1px dotted #357ae8 !important;
+}
+
+a:visited { color: lightgrey }
+
+.entry-title {
+  margin-bottom: 0.3em;
+}  
