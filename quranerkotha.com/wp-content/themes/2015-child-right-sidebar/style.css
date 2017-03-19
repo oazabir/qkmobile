@@ -355,3 +355,6 @@ a:visited { color: lightgrey }
   margin-bottom: 0.4em;
 }
 
+.entry-content img.alignright {
+  float: none;
+}
