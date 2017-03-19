@@ -25,3 +25,15 @@ To run using the app.quranerkotha.com server: ```meteor run android-device --mob
 
 
 NOTE: Does not work on Windows. File paths are more than 240 characters inside cordova folders and meteor build breaks. You can run locally though and do local development. But build will fail. 
+
+# Fixing Android SDK issues
+
+There's some issue with Meteor version and Android SDK incompatibility. Here's what to do:
+
+Install latest Android SDK. 
+
+Then download the Android Tools 25.2.x. It has to be the 25.2.x version. Latest versions do not work.
+
+Then copy everything in the tools zip/tar into the SDK's tools folder. You will see there are some new files that come up, which weren't there in the SDK's tools folder. 
+
+Only after this, meteor run/build for android device will work. 
