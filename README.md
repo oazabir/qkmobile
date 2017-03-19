@@ -1,6 +1,12 @@
 # কু’রআনের কথা Quraner Kotha mobile app version
 Mobile app that serves Quranerkotha.com in offline mode. It detects new changes on the website and updates the local cache. Also supports push notification receiving from main QK site.
 
+# Features
+ - Offline content from quranerkotha.com website. 
+ - Push notification to notify about new articles. 
+ - App updates itself using latest code pushed on server, using hot code push feature. 
+ - Remembers last article. 
+
 # Getting started
 
 Install meteor.
