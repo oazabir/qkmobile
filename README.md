@@ -1,5 +1,5 @@
 # কু’রআনের কথা Quraner Kotha mobile app version
-Mobile app that serves Quranerkotha.com in offline mode. It detects new changes on the website and updates the local cache. Also supports push notification receiving from main QK site.
+Mobile app to read Quranerkotha.com website offline without internet connection.
 
 # Features
  - Offline content from quranerkotha.com website. 
