@@ -457,3 +457,13 @@ a:visited { color: lightgrey }
   text-decoration: none;
   border: none !important;
 }
+
+
+.lcp_catlist li a:visited {
+  color: #666;
+}
+
+
+.display-posts-listing .listing-item a:visited {
+  color: #666;
+}
