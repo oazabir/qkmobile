@@ -16,9 +16,9 @@
    version="1.1"
    inkscape:version="0.91 r13725"
    sodipodi:docname="icon 1024 1024.svg"
-   inkscape:export-filename="C:\Users\oazab\Documents\qkmobile\resources\icon-ios.png"
-   inkscape:export-xdpi="90"
-   inkscape:export-ydpi="90">
+   inkscape:export-filename="C:\Users\oazab\Documents\qkmobile\resources\icon-512.png"
+   inkscape:export-xdpi="45"
+   inkscape:export-ydpi="45">
   <defs
      id="defs4">
     <filter
@@ -52,9 +52,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.08"
-     inkscape:cx="1331.1685"
-     inkscape:cy="-725.98341"
+     inkscape:zoom="0.5"
+     inkscape:cx="216.15152"
+     inkscape:cy="496.49008"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -81,24 +81,16 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(0,-28.362161)">
-    <ellipse
-       style="opacity:1;fill:#ffffff;fill-opacity:1"
-       id="path3376-6"
-       cx="511"
+    <circle
+       style="opacity:1;fill:#3282ff;fill-opacity:1"
+       id="path4167"
+       cx="512"
        cy="540.36218"
-       rx="510"
-       ry="512" />
-    <ellipse
-       style="opacity:1;fill:#00ff00;fill-opacity:1"
-       id="path3376"
-       cx="517"
-       cy="542.36218"
-       rx="441"
-       ry="446" />
+       r="512" />
     <flowRoot
        xml:space="preserve"
        id="flowRoot3336-9"
-       style="font-style:normal;font-weight:normal;font-size:180px;line-height:100%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000080;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;font-size:180px;line-height:100%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
        transform="matrix(1.1182722,0,0,1.5766,-55.02277,323.7483)"><flowRegion
          id="flowRegion3338-7"><rect
            id="rect3340-8"
@@ -106,9 +98,15 @@
            height="1024"
            x="2"
            y="4"
-           style="line-height:100%;text-align:center;text-anchor:middle;fill:#000080" /></flowRegion><flowPara
+           style="line-height:100%;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;" /></flowRegion><flowPara
          id="flowPara3342-2"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:100%;font-family:Nikosh2;-inkscape-font-specification:Nikosh2;text-align:center;text-anchor:middle;fill:#000080">কুরআনের </flowPara><flowPara
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:100%;font-family:Nikosh2;-inkscape-font-specification:Nikosh2;text-align:center;text-anchor:middle;fill:#000080"
-         id="flowPara3344-6">কথা </flowPara></flowRoot>  </g>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:100%;font-family:Nikosh2;-inkscape-font-specification:Nikosh2;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;">কুরআনের </flowPara><flowPara
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:100%;font-family:Nikosh2;-inkscape-font-specification:Nikosh2;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;"
+         id="flowPara3344-6">কথা </flowPara></flowRoot>    <circle
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:50;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4167-3"
+       cx="512"
+       cy="540.36218"
+       r="488.11935" />
+  </g>
 </svg>
