@@ -467,3 +467,8 @@ a:visited { color: lightgrey }
 .display-posts-listing .listing-item a:visited {
   color: #666;
 }
+
+
+a.visited {
+    color: #666 !important;
+}
