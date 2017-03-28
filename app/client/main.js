@@ -40,10 +40,12 @@ Meteor.startup(function() {
 
     }
     iframe.on("load", function() {
+      // Remember the last article loaded so that we can reload it when app starts
       var path = iframe.contents()[0].location.pathname;
       console.log(path);
       window.localStorage.setItem("lastPath", path);
 
+      // remember the visited links in an array so that we can mark the hyperlinks as visited
       var visitedLinks = window.localStorage.getItem("visitedItems");
       if (visitedLinks){
         visitedLinks = eval(visitedLinks);
@@ -55,6 +57,9 @@ Meteor.startup(function() {
         visitedLinks.push(path);
       }
 
+      if (visitedLinks.length > 100) {
+        visitedLinkes = visitedLinks.slice(0, 100);
+      }
       window.localStorage.setItem("visitedItems", JSON.stringify(visitedLinks));
 
       var viewedLinks = eval(window.localStorage.getItem("visitedItems") || "[]");

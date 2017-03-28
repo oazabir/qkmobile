@@ -459,16 +459,15 @@ a:visited { color: lightgrey }
 }
 
 
-.lcp_catlist li a:visited {
+/*.lcp_catlist li a:visited {
   color: #666;
 }
 
 
 .display-posts-listing .listing-item a:visited {
   color: #666;
-}
-
+}*/
 
 a.visited {
-    color: #666 !important;
+  color: #999 !important;
 }

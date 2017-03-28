@@ -7,7 +7,7 @@ App.info({
   author: 'Omar AL Zabir',
   email: 'omaralzabir@gmail.com',
   website: 'https://quranerkotha.com',
-	version: '1.0.6'
+	version: '1.0.7'
 });
 // Set PhoneGap/Cordova preferences
 App.setPreference('BackgroundColor', '0xffffffff');
@@ -55,7 +55,7 @@ App.launchScreens({
 
 App.setPreference('StatusBarOverlaysWebView', 'false');
 App.setPreference('StatusBarBackgroundColor', '#000000');
-App.setPreference("WebAppStartupTimeout", 600);
+App.setPreference("WebAppStartupTimeout", 300000);
 
 // Pass preferences for a particular PhoneGap/Cordova plugin
 // Add custom tags for a particular PhoneGap/Cordova plugin
