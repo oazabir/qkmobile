@@ -7,7 +7,7 @@ App.info({
   author: 'Omar AL Zabir',
   email: 'omaralzabir@gmail.com',
   website: 'https://quranerkotha.com',
-	version: '1.0.7'
+	version: '1.0.8'
 });
 // Set PhoneGap/Cordova preferences
 App.setPreference('BackgroundColor', '0xffffffff');
