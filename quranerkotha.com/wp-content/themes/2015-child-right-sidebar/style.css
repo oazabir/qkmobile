@@ -477,3 +477,11 @@ a:visited { color: lightgrey }
   text-align: justify;
   font-size: 115%;
 }
+
+.lcp_catlist li a {
+  font-size; 80%;
+}
+
+.display-posts-listing .listing-item a {
+    font-size: 80%;
+}
