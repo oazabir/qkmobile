@@ -468,6 +468,12 @@ a:visited { color: lightgrey }
   color: #666;
 }*/
 
-a.visited {
+.entry-content a.visited {
   color: #777 !important;
+}
+
+
+.entry-content, .entry-summary, .page-content, .comment-content {
+  text-align: justify;
+  font-size: 115%;
 }
