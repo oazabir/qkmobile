@@ -31,10 +31,10 @@ Meteor.startup(function() {
 
   if(Meteor.isClient) {
     var iframe = $('#iframe');
-    window.setInterval(function(){
+    /*window.setInterval(function(){
       iframe.css('width',window.innerWidth+'px');
       iframe.css('height',window.innerHeight+'px');
-    }, 1000);
+    }, 1000);*/
     if (window.localStorage) {
       var lastPath = window.localStorage.getItem("lastPath");
       if (lastPath) {
