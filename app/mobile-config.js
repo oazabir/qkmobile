@@ -7,17 +7,13 @@ App.info({
   author: 'Omar AL Zabir',
   email: 'omaralzabir@gmail.com',
   website: 'https://quranerkotha.com',
-	version: '1.1.7'
+	version: '1.0.9'
 });
 // Set PhoneGap/Cordova preferences
 App.setPreference('BackgroundColor', '0xffffffff');
 App.setPreference('HideKeyboardFormAccessoryBar', true);
 App.setPreference('Orientation', 'default');
 App.setPreference('Orientation', 'all', 'ios');
-
-
-App.setPreference('android-targetSdkVersion', '17');
-App.setPreference('android-minSdkVersion', '17');
 
 App.icons({
   "iphone_2x": "resources/icons/iphone_2x.png", // 120x120
