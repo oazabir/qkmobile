@@ -43,6 +43,8 @@
 	<xsl:template match="a[@href='http://quranerkotha.com/wp-content/uploads/2016/10/Poro-POD.pdf']">
 	</xsl:template>
 	
+	<xsl:template match="a[@href='https://play.google.com/store/apps/details?id=com.quranerkotha.app']">
+	</xsl:template>
  
 	<xsl:template match="a/@href[contains(.,'/')]">
 		<xsl:attribute name="href">
