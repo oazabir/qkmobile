@@ -23,7 +23,7 @@ Create a symbolic link to ../quranerkotha.com folder to a directory ```public```
 
 ```ln -s ../quranerkotha.com public```
 
-Add android platform. See next section for configuring Android SDK. 
+Add android platform. See next section for configuring Android SDK. You need to take some special steps to configure Android SDK with the right set of tools for meteor to work. The standard Android Studio installation or SDK installation does not work for meteor. 
 
 ```meteor add-platform android```
 
@@ -50,7 +50,8 @@ https://developer.android.com/studio/index.html#command-tools
 
 Create a folder named 'android-sdk'. Then inside that, extract the zip so that you get a tools folder inside it.
 
-Then go inside the tools folder (so you are now in android-sdk\tools) and run:
+
+Then run this from android-sdk/tools folder:
 
 ```
 ./android update sdk --no-list sdk --all
