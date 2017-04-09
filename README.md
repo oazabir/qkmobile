@@ -13,17 +13,25 @@ Install meteor.
 
 Clone the repository.
 
+Go inside app directory.
+
+Run ```meteor create .```
+
 Run ```meteor npm install``` inside quranerkotha.app folder. 
 
-Create a symbolic link to map ./quranetkotha.app/public to ./quranerkotha.com folder. 
+Create a symbolic link to ../quranerkotha.com folder to a directory ```public```. If it already exists, remove it first. 
+
+```ln -s ../quranerkotha.com public```
+
+Add android platform. See next section for configuring Android SDK. 
+
+```meteor add-platform android```
+
+Then add the plugins:
 
 ```
-quranerkotha.app$ ln -s ../quranerkotha.com public
+metoer add cordova:onesignal-cordova-plugin@2.0.11
 ```
-
-Go inside quranerkotha.app
-
-Run the app using ```meteor run```. This will start a server at localhost:3000 and you can browse it on browser. 
 
 To run on Android device: ```meteor run android-device```
 
@@ -32,14 +40,39 @@ To run using the app.quranerkotha.com server: ```meteor run android-device --mob
 
 NOTE: Does not work on Windows. File paths are more than 240 characters inside cordova folders and meteor build breaks. You can run locally though and do local development. But build will fail. 
 
-# Fixing Android SDK issues
+# Configure Android SDK
 
-There's some issue with Meteor version and Android SDK incompatibility. Here's what to do:
+This requires some special steps to install Android SDK via command line. 
 
-Install latest Android SDK. 
+First download the command line tools. 
 
-Then download the Android Tools 25.2.x. It has to be the 25.2.x version. Latest versions do not work.
+https://developer.android.com/studio/index.html#command-tools
 
-Then copy everything in the tools zip/tar into the SDK's tools folder. You will see there are some new files that come up, which weren't there in the SDK's tools folder. 
+Create a folder named 'android-sdk'. Then inside that, extract the zip so that you get a tools folder inside it.
 
-Only after this, meteor run/build for android device will work. 
+Then go inside the tools folder (so you are now in android-sdk\tools) and run:
+
+```
+./android update sdk --no-list sdk --all
+```
+
+From the list, find the number for these:
+
+ - 1- Android SDK Tools, revision 25.2.5
+ - 2- Android SDK Platform-tools, revision 25.0.4
+ - 5- Android SDK Build-tools, revision 25.0.2
+ - 36- SDK Platform Android 7.0, API 24, revision 2
+ - 164- Android Support Repository, revision 47
+ - 171- Google Repository, revision 46
+ - 164- Android Support Repository, revision 47
+ 
+Assuming you have seen the above numbers. Then run this command to install them:
+
+```
+./android update sdk --no-ui --filter 1,2,5,36,164,171
+```
+
+If the numbers were different for you, then make sure you use the correct numbers. 
+
+After this, you will most likely see the tools folder is empty or just have couple of folders. All the files you extracted from the SDK tools are gone. So, you need to extract the zip again, and bring back all the files. 
+
