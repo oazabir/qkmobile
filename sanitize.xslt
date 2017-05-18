@@ -39,6 +39,8 @@
 	</xsl:template>
 	<xsl:template match="p//*[contains(.,'ডাউনলোড করুন')]">
 	</xsl:template>
+	<xsl:template match="p/img[@src='/wp-content/uploads/2016/10/Appad.png']">
+	</xsl:template>
 	
 	<xsl:template match="a[@href='http://quranerkotha.com/wp-content/uploads/2016/10/Poro-POD.pdf']">
 	</xsl:template>
