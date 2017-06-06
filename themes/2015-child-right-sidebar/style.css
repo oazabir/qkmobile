@@ -326,8 +326,8 @@ ul.small *
     border-bottom: 1px dotted #dddddd !important;
 }
 
-a:visited {
-    color: cornflowerblue;
+.entry-content a:visited {
+    color: black;
 }
 
 .entry-title {
@@ -483,3 +483,5 @@ a:visited {
 .display-posts-listing .listing-item a {
     font-size: 80%;
 }
+
+.entry-content a { color: cornflowerblue }
