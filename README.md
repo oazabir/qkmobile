@@ -7,7 +7,29 @@ Mobile app to read Quranerkotha.com website offline without internet connection.
  - App updates itself using latest code pushed on server, using hot code push feature. 
  - Remembers last article. 
 
-# Getting started
+# Getting started - the easy way
+
+Get your machine ready with Vagrant. Then just run: ```setup-vagrant.sh```
+
+Everything will be installed and you will be ready to go. You can then run ```build.sh``` and build .apk file.
+
+# USB Debugging
+
+For USB debugging, enable USB 2.0 from Virtual Box settings. 
+
+Add a filter and select your Android phone.
+
+Restart VM. Keep device unplugged. 
+
+Connect device when VM is fully up.
+
+Go to root mode and run ```adb devices```. It should show the device. It might show as unauthorized. Look at your phone and authorize it.
+
+In order to run the app, use ```meteor run android-device```. 
+
+In order to install a built apk file, use ```adb install <filename>```
+
+# Getting started - the hard way
 
 Install meteor.
 

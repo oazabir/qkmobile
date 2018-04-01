@@ -41,9 +41,12 @@ touch ~/.android/repositories.cfg && \
 
 (cd ~/tools/bin && ./sdkmanager "platforms;android-26" && ./sdkmanager "platform-tools" && ./sdkmanager "build-tools;27.0.3" && ./sdkmanager "extras;android;m2repository" && ./sdkmanager "extras;google;m2repository") || exit 1
 
+cat >> ~/.bashrc <<EOL
 export ANDROID_HOME=/home/vagrant
-export PATH=$PATH:ANDROID_HOME/tools
-export PATH=$PATH:ANDROID_HOME/platform-tools
+export PATH=\$PATH:\$ANDROID_HOME/tools
+export PATH=\$PATH:\$ANDROID_HOME/platform-tools
+EOL
+source ~/.bashrc
 
 # Install meteor android
 

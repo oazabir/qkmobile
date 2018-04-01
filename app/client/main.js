@@ -3,6 +3,10 @@ import { ReactiveVar } from 'meteor/reactive-var';
 
 import './main.html';
 
+const HOME_HASH = '#home'
+const INDEX_PAGE_PATH = '/index/index.html' + HOME_HASH;
+const ONESIGNAL_KEY = "2dcb7944-fe51-4b86-aee6-0ce5e7809d34";
+
 Meteor.startup(function() {
   console.log("Application startup");  
 
@@ -15,7 +19,7 @@ Meteor.startup(function() {
     console.log("Initialize onesignal");
     //window.plugins.OneSignal.setLogLevel({logLevel: 6, visualLevel: 4});
     window.plugins.OneSignal
-      .startInit("2dcb7944-fe51-4b86-aee6-0ce5e7809d34")
+      .startInit(ONESIGNAL_KEY)
       .handleNotificationOpened(notificationOpenedCallback)
       .endInit();
     console.log("Initialized onesignal");
@@ -30,28 +34,69 @@ Meteor.startup(function() {
   }
 
   if(Meteor.isClient) {
+
+    var ALERT_DELAY = 3000;
+    var needToShowAlert = true;
+
+    Reload._onMigrate(function (retry) {
+      if (needToShowAlert) {
+        try {
+        console.log('going to reload in 3 seconds...');
+        Bert.alert( 'নতুন আর্টিকেল এসেছে!', 'success', 'growl-bottom-right' ); 
+        window.localStorage.setItem("lastPath", INDEX_PAGE_PATH);
+        } catch(x) {
+
+        }
+        needToShowAlert = false;
+        _.delay(retry, ALERT_DELAY);
+        return [false];
+      } else {
+        console.log('Reload');
+        return [true];
+      }
+    });
+
+    Bert.alert( 'নতুন আর্টিকেল আছে কিনা দেখছি...', 'info', 'growl-top-right' ); 
+
     var iframe = $('#iframe');
 
+    // Auto resize iFRAME to fit whole window periodically
     window.setInterval(function(){
       if (window.innerWidth>100) {
         iframe.css('width',window.innerWidth+'px');
         iframe.css('height',window.innerHeight+'px');
       }
     }, 1000);
+
+
     if (window.localStorage) {
-      var lastPath = window.localStorage.getItem("lastPath");
-      if (lastPath) {
-        if (lastPath != '/index/index.html') {
-          iframe.attr('src', lastPath);
-        } else {
-        }
+
+      // If user was reading an article, then load that article page
+      var lastPath = window.localStorage.getItem("lastPath") || INDEX_PAGE_PATH;
+      if (lastPath != INDEX_PAGE_PATH) {
+        iframe.attr('src', lastPath + HOME_HASH);
+      } else {
       }
+
+      function onDeviceReady(){
+        document.addEventListener("backbutton", function(e){
+            if(iframeLocation(iframe).hash==HOME_HASH){
+                e.preventDefault();
+                navigator.app.exitApp();
+            } else {
+                navigator.app.backHistory()
+            }
+        }, false);
+      }
+      document.addEventListener("deviceready", onDeviceReady, false);
 
       iframe.on("load", function() {
         // Remember the last article loaded so that we can reload it when app starts
-        var path = iframe.contents()[0].location.pathname;
+        var path = iframeLocation(iframe).pathname;
         console.log(path);
-        window.localStorage.setItem("lastPath", path);
+        if(iframeLocation(iframe).hash!=HOME_HASH){
+          window.localStorage.setItem("lastPath", path);
+        }
 
         // remember the visited links in an array so that we can mark the hyperlinks as visited
         var visitedLinks = window.localStorage.getItem("visitedItems");
@@ -87,3 +132,7 @@ Meteor.startup(function() {
   }
 
 });
+function iframeLocation(iframe) {
+  return iframe.contents()[0].location;
+}
+
