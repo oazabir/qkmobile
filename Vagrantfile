@@ -13,6 +13,7 @@ Vagrant.configure("2") do |config|
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
   config.vm.box = "ubuntu/xenial64"
+  config.disksize.size = '20GB'
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -52,12 +53,16 @@ Vagrant.configure("2") do |config|
   # Example for VirtualBox:
   #
   config.vm.provider "virtualbox" do |vb|
-     # Display the VirtualBox GUI when booting the machine
-     # vb.gui = true
-  
-     # Customize the amount of memory on the VM:
-     vb.memory = "1024"
-     vb.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root", "1"]
+    # Display the VirtualBox GUI when booting the machine
+    # vb.gui = true
+
+    # Customize the amount of memory on the VM:
+    vb.memory = "2048"
+	
+	# These enables USB, but as of writing this, it prevents VM from booting
+	#vb.customize ["modifyvm", :id, "--usb", "on"]
+	#vb.customize ["modifyvm", :id, "--usbehci", "on"]
+    vb.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root", "1"]
   end
   #
   # View the documentation for the provider you are using for more
@@ -67,15 +72,26 @@ Vagrant.configure("2") do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
-     apt-get update
-     apt-get install -y curl python-software-properties tidy xsltproc git
-     apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
-     echo "deb http://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
-     apt-get update
-     apt-get install -y mongodb-org
-     apt-get install -y nodejs
-     apt-get install -y npm
-     apt-get install -y build-essential libssl-dev 
-     curl https://install.meteor.com | sudo sh
+    fallocate -l 2G /swapfile && chmod 600 /swapfile && mkswap /swapfile && swapon /swapfile && swapon --show
+
+	# Install Oracle JDK 8
+	add-apt-repository ppa:webupd8team/java && \
+	apt update && \
+	echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true" | debconf-set-selections && \
+	apt install -y oracle-java8-installer
+
+	# Install various necessary libraries
+    apt-get install -y curl python-software-properties tidy xsltproc git unzip git gradle dos2unix build-essential libssl-dev
+
+    # Install mongodb
+    apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
+    echo "deb http://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
+    apt-get update
+    apt-get install -y mongodb-org
+
+    # Install nodejs
+    apt-get install -y nodejs npm 
+	
+
   SHELL
 end
