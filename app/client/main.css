@@ -9,3 +9,7 @@ iframe {
     width: 100vw;
 	background-color: #eeeeee;
 }
+
+.bert-alert {
+    zoom: 0.8;
+}

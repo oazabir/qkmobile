@@ -7,12 +7,12 @@ const HOME_HASH = '#home'
 const INDEX_PAGE_PATH = '/index/index.html' + HOME_HASH;
 const ONESIGNAL_KEY = "2dcb7944-fe51-4b86-aee6-0ce5e7809d34";
 
-Meteor.startup(function() {
-  console.log("Application startup");  
+Meteor.startup(function () {
+  console.log("Application startup");
 
   // Here we can be sure the plugin has been initialized
-  if(Meteor.isCordova){
-    var notificationOpenedCallback = function(jsonData) {
+  if (Meteor.isCordova) {
+    var notificationOpenedCallback = function (jsonData) {
       console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
     };
 
@@ -23,17 +23,17 @@ Meteor.startup(function() {
       .handleNotificationOpened(notificationOpenedCallback)
       .endInit();
     console.log("Initialized onesignal");
-    window.plugins.OneSignal.getIds(function(ids) {
-        console.log('getIds: ' + JSON.stringify(ids));
+    window.plugins.OneSignal.getIds(function (ids) {
+      console.log('getIds: ' + JSON.stringify(ids));
     });
 
     // Call syncHashedEmail anywhere in your app if you have the user's email.
     // This improves the effectiveness of OneSignal's "best-time" notification scheduling feature.
     // window.plugins.OneSignal.syncHashedEmail(userEmail);
-    
+
   }
 
-  if(Meteor.isClient) {
+  if (Meteor.isClient) {
 
     var ALERT_DELAY = 3000;
     var needToShowAlert = true;
@@ -41,10 +41,10 @@ Meteor.startup(function() {
     Reload._onMigrate(function (retry) {
       if (needToShowAlert) {
         try {
-        console.log('going to reload in 3 seconds...');
-        Bert.alert( 'নতুন আর্টিকেল এসেছে!', 'success', 'growl-bottom-right' ); 
-        window.localStorage.setItem("lastPath", INDEX_PAGE_PATH);
-        } catch(x) {
+          console.log('going to reload in 3 seconds...');
+          Bert.alert('নতুন আর্টিকেল এসেছে!', 'success', 'growl-bottom-right');
+          window.localStorage.setItem("lastPath", INDEX_PAGE_PATH);
+        } catch (x) {
 
         }
         needToShowAlert = false;
@@ -56,15 +56,15 @@ Meteor.startup(function() {
       }
     });
 
-    Bert.alert( 'নতুন আর্টিকেল আছে কিনা দেখছি...', 'info', 'growl-top-right' ); 
+    Bert.alert('নতুন আর্টিকেল এসেছে কিনা দেখছি...', 'info', 'growl-top-right');
 
     var iframe = $('#iframe');
 
     // Auto resize iFRAME to fit whole window periodically
-    window.setInterval(function(){
-      if (window.innerWidth>100) {
-        iframe.css('width',window.innerWidth+'px');
-        iframe.css('height',window.innerHeight+'px');
+    window.setInterval(function () {
+      if (window.innerWidth > 100) {
+        iframe.css('width', window.innerWidth + 'px');
+        iframe.css('height', window.innerHeight + 'px');
       }
     }, 1000);
 
@@ -78,35 +78,35 @@ Meteor.startup(function() {
       } else {
       }
 
-      function onDeviceReady(){
-        document.addEventListener("backbutton", function(e){
-            if(iframeLocation(iframe).hash==HOME_HASH){
-                e.preventDefault();
-                navigator.app.exitApp();
-            } else {
-                navigator.app.backHistory()
-            }
+      function onDeviceReady() {
+        document.addEventListener("backbutton", function (e) {
+          if (iframeLocation(iframe).hash == HOME_HASH) {
+            e.preventDefault();
+            navigator.app.exitApp();
+          } else {
+            navigator.app.backHistory()
+          }
         }, false);
       }
       document.addEventListener("deviceready", onDeviceReady, false);
 
-      iframe.on("load", function() {
+      iframe.on("load", function () {
         // Remember the last article loaded so that we can reload it when app starts
         var path = iframeLocation(iframe).pathname;
         console.log(path);
-        if(iframeLocation(iframe).hash!=HOME_HASH){
+        if (iframeLocation(iframe).hash != HOME_HASH) {
           window.localStorage.setItem("lastPath", path);
         }
 
         // remember the visited links in an array so that we can mark the hyperlinks as visited
         var visitedLinks = window.localStorage.getItem("visitedItems");
-        if (visitedLinks){
+        if (visitedLinks) {
           visitedLinks = eval(visitedLinks);
         } else {
           visitedLinks = [];
         }
 
-        if ($.inArray(path, visitedLinks)<0){
+        if ($.inArray(path, visitedLinks) < 0) {
           visitedLinks.push(path);
         }
 
@@ -116,13 +116,13 @@ Meteor.startup(function() {
         window.localStorage.setItem("visitedItems", JSON.stringify(visitedLinks));
 
         var viewedLinks = eval(window.localStorage.getItem("visitedItems") || "[]");
-        $('a', iframe.contents()[0]).each(function(){
+        $('a', iframe.contents()[0]).each(function () {
           var href = $(this).attr('href');
-          for (var i = 0; i < viewedLinks.length; i ++){
-            if(viewedLinks[i].length > 3){
-              if (href.indexOf(viewedLinks[i])>=0) {
+          for (var i = 0; i < viewedLinks.length; i++) {
+            if (viewedLinks[i].length > 3) {
+              if (href.indexOf(viewedLinks[i]) >= 0) {
                 $(this).addClass('visited');
-              } 
+              }
             }
           }
         });
