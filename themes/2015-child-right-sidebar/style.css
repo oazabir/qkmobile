@@ -485,3 +485,7 @@ ul.small *
 }
 
 .entry-content a { color: cornflowerblue }
+
+.secondary-toggle {
+  background-color: #AAABF3;
+}
