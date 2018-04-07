@@ -9,7 +9,13 @@ const INDEX_PAGE_PATH = '/index/index.html' + HOME_HASH;
 const ONESIGNAL_KEY = "2dcb7944-fe51-4b86-aee6-0ce5e7809d34";
 
 
-
+var userId = "";
+function userLogInfo(log, message) {
+  log.info('['+userId+'] ' + message);
+}
+function userLogError(log, message, params) {
+  log.error('['+userId+'] ' + message, params);
+}
 
 Meteor.startup(function () {
   console.log("Application startup");
@@ -22,8 +28,6 @@ Meteor.startup(function () {
       return ((Meteor.isServer) ? '[SERVER]' : "[CLIENT]") + ' [' + opts.level + '] - ' + opts.message;
     }
   })).enable();
-
-  log.info("Started logger");
 
   // Here we can be sure the plugin has been initialized
   if (Meteor.isCordova) {
@@ -40,6 +44,8 @@ Meteor.startup(function () {
     console.log("Initialized onesignal");
     window.plugins.OneSignal.getIds(function (ids) {
       console.log('getIds: ' + JSON.stringify(ids));
+      userId = ids.userId;
+      userLogInfo(log, 'Logged in.');
     });
 
     // Call syncHashedEmail anywhere in your app if you have the user's email.
@@ -49,13 +55,12 @@ Meteor.startup(function () {
   }
 
   if (Meteor.isClient) {
-    log.info("Client started");
-    
     /* Store original window.onerror */
     const _GlobalErrorHandler = window.onerror;
 
     window.onerror = (msg, url, line) => {
-      log.error(msg, {file: url, onLine: line});
+      //log.error(msg, {file: url, onLine: line});
+      userLogError(log, msg, {file: url, onLine: line});
       if (_GlobalErrorHandler) {
         _GlobalErrorHandler.apply(this, arguments);
       }
@@ -65,7 +70,7 @@ Meteor.startup(function () {
     var needToShowAlert = true;
 
     Reload._onMigrate(function (retry) {
-      log.info("Reload._onMigrate");
+      userLogInfo(log, "Reload._onMigrate fired");
 
       if (needToShowAlert) {
         try {
@@ -79,9 +84,9 @@ Meteor.startup(function () {
         _.delay(function() {
           try {
             retry();
-            log.info("Reloaded.")
+            userLogInfo(log, 'Reloaded');
           } catch(e) {
-            log.error("Reload error: " + e.message);
+            userLogError(log, e.message, {});
           }
         }, ALERT_DELAY);
         return [false];
@@ -131,6 +136,7 @@ Meteor.startup(function () {
         console.log(path);
         if (iframeLocation(iframe).hash != HOME_HASH) {
           window.localStorage.setItem("lastPath", path);
+          userLogInfo(log, "Read: " + path);
         }
 
         // remember the visited links in an array so that we can mark the hyperlinks as visited
