@@ -15,9 +15,7 @@ Meteor.startup(function () {
   console.log("Application startup");
   // Initialize Logger:
   const log = new Logger();
-  // Initialize and enable LoggerConsole with default settings:
-  (new LoggerConsole(log)).enable();
-
+  
   // Initialize and enable LoggerConsole with custom formatting:
   (new LoggerConsole(log, {
     format(opts) {
