@@ -4,8 +4,8 @@ import { LoggerConsole } from 'meteor/ostrio:loggerconsole';
 
 Meteor.startup(() => {
   // code to run on server at startup
-  const mylog = new Logger();
-  (new LoggerConsole(mylog)).enable();
+  const log = new Logger();
+  (new LoggerConsole(log)).enable();
 
   // Initialize and enable LoggerConsole with custom formatting:
   (new LoggerConsole(log, {
