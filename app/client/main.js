@@ -1,14 +1,31 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
-
+import { Logger }        from 'meteor/ostrio:logger';
+import { LoggerConsole } from 'meteor/ostrio:loggerconsole';
 import './main.html';
 
 const HOME_HASH = '#home'
 const INDEX_PAGE_PATH = '/index/index.html' + HOME_HASH;
 const ONESIGNAL_KEY = "2dcb7944-fe51-4b86-aee6-0ce5e7809d34";
 
+
+
+
 Meteor.startup(function () {
   console.log("Application startup");
+  // Initialize Logger:
+  const log = new Logger();
+  // Initialize and enable LoggerConsole with default settings:
+  (new LoggerConsole(log)).enable();
+
+  // Initialize and enable LoggerConsole with custom formatting:
+  (new LoggerConsole(log, {
+    format(opts) {
+      return ((Meteor.isServer) ? '[SERVER]' : "[CLIENT]") + ' [' + opts.level + '] - ' + opts.message;
+    }
+  })).enable();
+
+  log.info("Started logger");
 
   // Here we can be sure the plugin has been initialized
   if (Meteor.isCordova) {
@@ -34,11 +51,24 @@ Meteor.startup(function () {
   }
 
   if (Meteor.isClient) {
+    log.info("Client started");
+    
+    /* Store original window.onerror */
+    const _GlobalErrorHandler = window.onerror;
 
+    window.onerror = (msg, url, line) => {
+      log.error(msg, {file: url, onLine: line});
+      if (_GlobalErrorHandler) {
+        _GlobalErrorHandler.apply(this, arguments);
+      }
+    };
+    
     var ALERT_DELAY = 3000;
     var needToShowAlert = true;
 
     Reload._onMigrate(function (retry) {
+      log.info("Reload._onMigrate");
+
       if (needToShowAlert) {
         try {
           console.log('going to reload in 3 seconds...');
@@ -48,10 +78,17 @@ Meteor.startup(function () {
 
         }
         needToShowAlert = false;
-        _.delay(retry, ALERT_DELAY);
+        _.delay(function() {
+          try {
+            retry();
+            log.info("Reloaded.")
+          } catch(e) {
+            log.error("Reload error: " + e.message);
+          }
+        }, ALERT_DELAY);
         return [false];
       } else {
-        console.log('Reload');
+        
         return [true];
       }
     });
