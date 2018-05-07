@@ -466,11 +466,6 @@ ul.small *
   color: #666;
 }*/
 
-.entry-content a:visited {
-    color: cornflowerblue;
-}
-
-
 .entry-content, .entry-summary, .page-content, .comment-content {
   text-align: justify;
   font-size: 115%;
