@@ -91,7 +91,8 @@ Vagrant.configure("2") do |config|
     apt-get install -y mongodb-org
 
     # Install nodejs
-    apt-get install -y nodejs npm 
+    curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+    sudo apt-get install -y nodejs
 	
 
   SHELL

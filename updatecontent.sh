@@ -13,7 +13,7 @@ rm quranerkotha.com/wp-content/uploads/*/*/*-*x*.jpg
 find quranerkotha.com/$FOLDER/ -type d -name 'feed' -exec rm -rf {} \;
 find quranerkotha.com/$FOLDER/ -type d -name 'amp' -exec rm -rf {} \;
 
-sed -i 's/title-150x150.png/title.png/g' quranerkotha.com/index/index.html
+sed -i 's/-150x150.png/.png/g' quranerkotha.com/index/index.html
 
 ./cleanupcontent.sh ./quranerkotha.com/$FOLDER/
 
