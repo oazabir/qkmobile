@@ -1,6 +1,5 @@
 appbuild/
 .vagrant/
-.keystore
 *.log
 app/public/
 app/.meteor/*
