@@ -13,7 +13,11 @@ rm quranerkotha.com/wp-content/uploads/*/*/*-*x*.jpg
 find quranerkotha.com/$FOLDER/ -type d -name 'feed' -exec rm -rf {} \;
 find quranerkotha.com/$FOLDER/ -type d -name 'amp' -exec rm -rf {} \;
 
-sed -i 's/-150x150.png/.png/g' quranerkotha.com/index/index.html
+if [ "$(uname)" == "Darwin" ]; then
+    sed -i '' 's/-150x150.png/.png/g' quranerkotha.com/index/index.html
+elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+   sed -i '' 's/-150x150.png/.png/g' quranerkotha.com/index/index.html
+fi
 
 ./cleanupcontent.sh ./quranerkotha.com/$FOLDER/
 

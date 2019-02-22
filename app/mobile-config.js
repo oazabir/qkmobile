@@ -7,7 +7,7 @@ App.info({
   author: 'Omar AL Zabir',
   email: 'omaralzabir@gmail.com',
   website: 'https://quranerkotha.com',
-	version: '1.2.2'
+  version: '1.3.2'
 });
 // Set PhoneGap/Cordova preferences
 App.setPreference('BackgroundColor', '0xffffffff');
@@ -21,7 +21,7 @@ App.icons({
   "iphone_2x": "resources/icons/iphone_2x.png", // 120x120
   "iphone_3x": "resources/icons/iphone_3x.png", // 180x180
   "ipad": "resources/icons/ipad.png", // 76x76
-  "ipad_2x": "resources/icons/ipad_2x.png", // 1.2.252
+  "ipad_2x": "resources/icons/ipad_2x.png", // 1.3.252
   "ipad_pro": "resources/icons/ipad_pro.png", // 167x167
   "ios_settings": "resources/icons/ios_settings.png", // 29x29
   "ios_settings_2x": "resources/icons/ios_settings_2x.png", // 58x58
@@ -41,7 +41,7 @@ App.icons({
   "android_hdpi": "resources/icons/android_hdpi.png", // 72x72
   "android_xhdpi": "resources/icons/android_xhdpi.png", // 96x96
   "android_xxhdpi": "resources/icons/android_xxhdpi.png", // 144x144
-  "android_xxxhdpi": "resources/icons/android_xxxhdpi.png", // 1.2.292
+  "android_xxxhdpi": "resources/icons/android_xxxhdpi.png", // 1.3.292
   "android_store": "resources/icons/android_store.png" // 512x512
 });
 
