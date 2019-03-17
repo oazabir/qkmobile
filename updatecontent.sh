@@ -1,3 +1,4 @@
+set -x
 FOLDER=$1
 # Drop existing folder
 rm quranerkotha.com/$FOLDER -rf
@@ -13,11 +14,10 @@ rm quranerkotha.com/wp-content/uploads/*/*/*-*x*.jpg
 find quranerkotha.com/$FOLDER/ -type d -name 'feed' -exec rm -rf {} \;
 find quranerkotha.com/$FOLDER/ -type d -name 'amp' -exec rm -rf {} \;
 
-if [ "$(uname)" == "Darwin" ]; then
-    sed -i '' 's/-150x150.png/.png/g' quranerkotha.com/index/index.html
-elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-   sed -i '' 's/-150x150.png/.png/g' quranerkotha.com/index/index.html
-fi
+sedi () {
+    sed --version >/dev/null 2>&1 && sed -i -- "$@" || sed -i "" "$@"
+}
+sedi  's/-150x150.png/.png/g' 'quranerkotha.com/index/index.html'
 
 ./cleanupcontent.sh ./quranerkotha.com/$FOLDER/
 
