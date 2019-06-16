@@ -36,6 +36,11 @@ Meteor.startup(function () {
     /* Store original window.onerror */
     const _GlobalErrorHandler = window.onerror;    
     setupGlobalErrorHandler(log, _GlobalErrorHandler);
+
+    if (typeof Bert === "undefined" ) {
+        userLogError("Bert is undefined", {}, {});
+    }
+	
     
     var ALERT_DELAY = 3000;
     var needToShowAlert = true;     
@@ -183,7 +188,7 @@ function configureReload(log, needToShowAlert, ALERT_DELAY) {
     Bert.alert('নতুন আর্টিকেল এসেছে কিনা দেখছি...', 'info', 'growl-top-right');
   }
   catch (e) {
-    console.log(e);
+    userLogError(log, e.message, {});
   }
   return needToShowAlert;
 }
