@@ -86,10 +86,15 @@ Vagrant.configure("2") do |config|
     fallocate -l 2G /swapfile && chmod 600 /swapfile && mkswap /swapfile && swapon /swapfile && swapon --show
 
 	# Install Oracle JDK 8
-	add-apt-repository ppa:webupd8team/java && \
-	apt update && \
-	echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true" | debconf-set-selections && \
-	apt install -y oracle-java8-installer
+	#add-apt-repository ppa:webupd8team/java && \
+	#apt update && \
+	#echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true" | debconf-set-selections && \
+	#apt install -y oracle-java8-installer
+
+	# Install open jdk 8 
+	add-apt-repository ppa:openjdk-r/ppa
+	apt-get update
+	apt-get install openjdk-8-jdk
 
 	# Install various necessary libraries
     apt-get install -y curl python-software-properties tidy xsltproc git unzip git gradle dos2unix build-essential libssl-dev
