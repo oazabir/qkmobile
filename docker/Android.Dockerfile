@@ -39,11 +39,11 @@ RUN mkdir -p $ANDROID_SDK_PATH
 WORKDIR $ANDROID_SDK_PATH
 
 RUN wget $ANDROID_SDK_URL -O android-sdk.zip && \
-unzip android-sdk.zip -d android-sdk-linux && \
-rm -fr android-sdk.zip && \
-mkdir ~/.android/ && \
-touch ~/.android/repositories.cfg 
- 
+	unzip android-sdk.zip -d android-sdk-linux && \
+	rm -fr android-sdk.zip && \
+	mkdir ~/.android/ && \
+	touch ~/.android/repositories.cfg 
+
 # Install the Android SDK
 WORKDIR $ANDROID_SDK_PATH/android-sdk-linux
 
@@ -104,8 +104,14 @@ WORKDIR /usr/local/bin
 USER newuser
 
 # Create a test app to download meteor libraries
-RUN cd ${APP_PATH} && meteor create myapp 
+RUN cd ${APP_PATH} && meteor create --full myapp 
 RUN cd ${APP_PATH}/myapp && meteor add-platform android
+RUN cd ${APP_PATH}/myapp && meteor add ostrio:loggerconsole && \
+	meteor add ostrio:logger && \
+	meteor add themeteorchef:bert && \
+	meteor add cordova:onesignal-cordova-plugin@2.5.2 && \
+	meteor add cordova:cordova-plugin-statusbar@2.4.3 && \
+	meteor add cordova:cordova-plugin-splashscreen@5.0.3
 RUN cd ${APP_PATH}/myapp && mkdir -p /tmp/appbuild && meteor build /tmp/appbuild --server http://localhost
 RUN rm -rf /tmp/appbuild
 

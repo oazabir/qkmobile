@@ -16,18 +16,23 @@ TMP_BUILD_PATH=/tmp/build
 echo "Launching mobile build..."
 
 mkdir -p ${TMP_APP_PATH}
-#mkdir -p ${TMP_APP_PATH}/public
 mkdir -p ${TMP_BUILD_PATH}
 
 cd ${TMP_APP_PATH}
 
-cp -rp ${APP_PATH}/. ./
-#cp -rp ${PUBLIC}/* ./public/
+#find ${APP_PATH}/. -not -wholename 'public' -o -not -iname '.meteor'  -exec cp '{}' './{}' ';'
+cp -rd ${APP_PATH}/* ./
+rm -rf ./public || echo "Cannot delete public folder"
+mkdir ./public
+cp -r ${PUBLIC}/* ./public/ || echo "Public content copy failed."
 
 echo "This is how app directory looks like..."
 ls 
+ls ./public/
 
 echo "Add meteor libraries..."
+meteor create .
+meteor npm install 
 meteor add-platform android || echo "Android is there"
 meteor add ostrio:loggerconsole
 meteor add ostrio:logger
@@ -36,12 +41,9 @@ meteor add cordova:onesignal-cordova-plugin@2.5.2
 meteor add cordova:cordova-plugin-statusbar@2.4.3
 meteor add cordova:cordova-plugin-splashscreen@5.0.3
 
-#rm -fr ./node_modules && rm -fr ./.meteor/local
-meteor npm install
-
 echo "Building Meteor app..."
 
-meteor build  --directory ${TMP_BUILD_PATH} --server ${APP_SERVER}
+meteor build --directory ${TMP_BUILD_PATH} --server ${APP_SERVER}
 
 cd ${TMP_BUILD_PATH}
 
@@ -52,8 +54,10 @@ APK_UNSIGNED_FILE_NAME=$(find ${TMP_BUILD_PATH} -name *.apk | grep "/release/" |
 echo "Found APK at ${APK_UNSIGNED_FILE_NAME}"
 # mv ${APK_UNSIGNED_FILE_NAME} ./
 
-jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 \
-    -keystore ${KEYSTORE_FILE_PATH} ${APK_UNSIGNED_FILE_NAME} ${KEYSTORE_ALIAS}
+CMD="jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 \
+    -keystore ${KEYSTORE_FILE_PATH} ${APK_UNSIGNED_FILE_NAME} ${KEYSTORE_ALIAS}"
+
+${CMD} || ${CMD} || "Failed jarsigner twice"
 
 ${ANDROID_HOME}/build-tools/*/zipalign 4 ${APK_UNSIGNED_FILE_NAME} ${APK_FILE_NAME}
 

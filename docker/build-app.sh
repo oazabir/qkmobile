@@ -1,5 +1,8 @@
 export APP_SERVER=https://app.quranerkotha.com
 export KEYSTORE_ALIAS=quranerkotha
+
+rm -rf ../appbuild/*
+
 docker build -f Android.Dockerfile -t qkmobile-android . && \
 docker run \
     -it \
