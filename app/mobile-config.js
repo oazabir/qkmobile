@@ -41,8 +41,7 @@ App.icons({
   "android_hdpi": "resources/icons/android_hdpi.png", // 72x72
   "android_xhdpi": "resources/icons/android_xhdpi.png", // 96x96
   "android_xxhdpi": "resources/icons/android_xxhdpi.png", // 144x144
-  "android_xxxhdpi": "resources/icons/android_xxxhdpi.png", // 1.3.292
-  "android_store": "resources/icons/android_store.png" // 512x512
+  "android_xxxhdpi": "resources/icons/android_xxxhdpi.png"
 });
 
 App.launchScreens({
@@ -63,8 +62,7 @@ App.launchScreens({
   "android_xhdpi_portrait": "resources/splashes/android_xhdpi_portrait.png", // 720x1280
   "android_xhdpi_landscape": "resources/splashes/android_xhdpi_landscape.png", // 1280x720
   "android_xxhdpi_portrait": "resources/splashes/android_xxhdpi_portrait.png", // 1080x1440
-  "android_xxhdpi_landscape": "resources/splashes/android_xxhdpi_landscape.png", // 1440x1080
-  "android_featured": "resources/splashes/android_featured.png" // 1024x500
+  "android_xxhdpi_landscape": "resources/splashes/android_xxhdpi_landscape.png"
 })
 
 App.setPreference('StatusBarOverlaysWebView', 'false');

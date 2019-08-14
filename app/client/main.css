@@ -1,8 +1,13 @@
 body {
     margin: 0;            /* Reset default margin */
+    background-color: blue;
+    height: 100vh;        /* Viewport-relative units */
+    width: 100vw;
+	
 }
 iframe {
-    display: block;       /* iframes are inline by default */
+    display: block;      /* iframes are inline by default */
+    position: relative;
     background: #000;
     border: none;         /* Reset default border */
     height: 100vh;        /* Viewport-relative units */
