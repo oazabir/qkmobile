@@ -1,6 +1,5 @@
 export APP_SERVER=https://app.quranerkotha.com
-export KEYSTORE_ALIAS=quranerkotha
-docker build -t qkmobile-android . && \
+docker build -f Server.Dockerfile -t qkmobile-server . && \
 docker run \
     -it \
     --rm \
@@ -10,4 +9,4 @@ docker run \
     -v "$PWD/../appbuild":/build \
     -v "$PWD/../quranerkotha.com":/app/public \
     -p 3000:3000 \
-    qkmobile-android:latest bash build-server.sh
+    qkmobile-server:latest bash build-server.sh

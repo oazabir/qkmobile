@@ -117,7 +117,5 @@ VOLUME $PUBLIC
 USER root
 COPY ./build-android.sh ./
 RUN chmod +x ./build-android.sh
-COPY ./build-server.sh ./
-RUN chmod +x ./build-server.sh
 
 USER newuser

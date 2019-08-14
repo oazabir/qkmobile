@@ -16,22 +16,25 @@ TMP_BUILD_PATH=/tmp/build
 echo "Launching mobile build..."
 
 mkdir -p ${TMP_APP_PATH}
-mkdir -p ${TMP_APP_PATH}/public
+#mkdir -p ${TMP_APP_PATH}/public
 mkdir -p ${TMP_BUILD_PATH}
 
 cd ${TMP_APP_PATH}
 
 cp -rp ${APP_PATH}/. ./
-cp -rp ${PUBLIC}/* ./public/
+#cp -rp ${PUBLIC}/* ./public/
 
 echo "This is how app directory looks like..."
 ls 
 
 echo "Add meteor libraries..."
-meteor add-platform android
-meteor add cordova:onesignal-cordova-plugin@2.5.2
+meteor add-platform android || echo "Android is there"
 meteor add ostrio:loggerconsole
 meteor add ostrio:logger
+meteor add themeteorchef:bert
+meteor add cordova:onesignal-cordova-plugin@2.5.2
+meteor add cordova:cordova-plugin-statusbar@2.4.3
+meteor add cordova:cordova-plugin-splashscreen@5.0.3
 
 #rm -fr ./node_modules && rm -fr ./.meteor/local
 meteor npm install
