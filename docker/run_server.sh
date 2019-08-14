@@ -1,7 +1,7 @@
 export APP_SERVER=https://app.quranerkotha.com
 docker build -f Server.Dockerfile -t qkmobile-server . && \
 docker run \
-    -it \
+    -d \
     --rm \
     --name qkmobile-server \
     -e APP_SERVER="$APP_SERVER" \

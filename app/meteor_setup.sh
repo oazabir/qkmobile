@@ -1,5 +1,5 @@
-rm -rf public
-ln -s ../quranerkotha.com public
+#rm -rf public
+#ln -s ../quranerkotha.com public
 meteor create .
 meteor npm install --save @babel/runtime@latest
 meteor add-platform android

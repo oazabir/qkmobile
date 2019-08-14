@@ -6,12 +6,18 @@ set -e
 : ${APP_BUILD_PATH:?}
 : ${APP_SERVER:?}
 
-cd ${APP_PATH}
-meteor npm install --production
-meteor build --directory ${APP_BUILD_PATH} --architecture os.linux.x86_64 --server-only
+mkdir -p /tmp/app
+mkdir -p /tmp/appbuild
 
-cd ${APP_BUILD_PATH}/bundle/programs/server
+cp -r ${APP_PATH}/. /tmp/app/
+
+cd /tmp/app
+bash meteor_setup.sh
+meteor npm install --production
+meteor build --directory /tmp/appbuild --architecture os.linux.x86_64 --server-only
+
+cd /tmp/appbuild/bundle/programs/server
 npm install --production
 
-cd ${APP_BUILD_PATH}/bundle
+cd /tmp/appbuild/bundle
 MONGO_URL=mongodb://localhost:27017/quranerkotha ROOT_URL=${APP_SERVER} node main.js
