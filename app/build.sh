@@ -6,7 +6,7 @@ newversion=`echo $version | awk -F. -v OFS=. 'NF==1{print ++$NF}; NF>1{if(length
 
 echo "Current version: $version, new version: $newversion"
 
-sed -i  "s/$version/$newversion/" mobile-config.js 
+sed -i '' 's/$version/$newversion/' mobile-config.js 
 
 #export ANDROID_HOME=~/Library/Android/sdk
 meteor build ../appbuild --server=https://app.quranerkotha.com --architecture=os.linux.x86_64 && \
