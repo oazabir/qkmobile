@@ -18,6 +18,7 @@ sedi () {
     sed --version >/dev/null 2>&1 && sed -i -- "$@" || sed -i "" "$@"
 }
 sedi  's/-150x150.png/.png/g' 'quranerkotha.com/index/index.html'
+sedi  's/-150x150.jpg/.jpg/g' 'quranerkotha.com/index/index.html'
 
 ./cleanupcontent.sh ./quranerkotha.com/$FOLDER/
 
