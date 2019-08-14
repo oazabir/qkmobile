@@ -3,3 +3,5 @@ appbuild/
 *.log
 app/public/
 app/.meteor/*
+app/package-lock.json
+.DS_Store
