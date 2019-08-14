@@ -8,6 +8,5 @@ docker run \
     -v "$PWD/../app":/app \
     -v "$PWD/../appbuild":/build \
     -v "$PWD/../quranerkotha.com":/app/public \
-    #-p 3000:3000 \
     --net=host  \
     qkmobile-server:latest bash build-server.sh
