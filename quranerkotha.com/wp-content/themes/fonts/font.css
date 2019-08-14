@@ -4,8 +4,7 @@
   src: url('SolaimanLipiNormal.eot?#iefix') format('embedded-opentype'),
        url('SolaimanLipiNormal.woff2') format('woff2'),
        url('SolaimanLipiNormal.woff') format('woff'),
-       url('SolaimanLipiNormal.ttf') format('truetype'),
-       url('SolaimanLipiNormal.svg#SolaimanLipiNormal') format('svg');
+       url('SolaimanLipiNormal.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
