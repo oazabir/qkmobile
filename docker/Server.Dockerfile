@@ -65,6 +65,12 @@ USER newuser
 
 # Create a test app to download meteor libraries
 RUN cd ${APP_PATH} && meteor create myapp 
+RUN cd ${APP_PATH}/myapp && meteor add ostrio:loggerconsole && \
+	meteor add ostrio:logger && \
+	meteor add themeteorchef:bert && \
+	meteor add cordova:onesignal-cordova-plugin@2.5.2 && \
+	meteor add cordova:cordova-plugin-statusbar@2.4.3 && \
+	meteor add cordova:cordova-plugin-splashscreen@5.0.3
 RUN cd ${APP_PATH}/myapp && mkdir -p /tmp/appbuild && meteor build --directory /tmp/appbuild --architecture os.linux.x86_64 --server-only
 RUN rm -rf /tmp/appbuild
 

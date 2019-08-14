@@ -13,4 +13,5 @@ docker run \
     -v "$PWD/../app":/app \
     -v "$PWD/../appbuild":/build \
     -v "$PWD/../quranerkotha.com":/app/public \
-    qkmobile-android:latest bash build-android.sh
+    qkmobile-android:latest bash build-android.sh && \
+cp ../appbuild/release-signed.apk ../app/quranerkotha.apk
