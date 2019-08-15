@@ -104,7 +104,7 @@
 	 
 	<xsl:template match="head">
 		<head>
-			<meta http-equiv="Content-Security-Policy" content="default-src *; font-src *; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'; media-src *; img-src * filesystem: data:" />
+			<meta http-equiv="Content-Security-Policy" content="default-src *; font-src * filesystem: data:; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'; media-src *; img-src * filesystem: data:" />
 
 			<title>কুর‘আনের কথা</title>
 		
