@@ -95,9 +95,17 @@
 			<xsl:value-of select="concat('../', substring-after(.,'http://quranerkotha.com/'))"/>
 		</xsl:attribute>
 	</xsl:template> -->
+
+	<xsl:template match="img/@src[starts-with(.,'http://quranerkotha.com/')]">
+		<xsl:attribute name="src">
+			<xsl:value-of select="concat('https://quranerkotha.com/', substring-after(.,'http://quranerkotha.com/'))"/>
+		</xsl:attribute>
+	</xsl:template>
 	 
 	<xsl:template match="head">
 		<head>
+			<meta http-equiv="Content-Security-Policy" content="default-src *; font-src *; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'; media-src *; img-src * filesystem: data:" />
+
 			<title>কুর‘আনের কথা</title>
 		
 			<link rel="stylesheet" id="parent-style-css" href="../wp-content/themes/twentyfifteen/style.css" type="text/css" media="all" />

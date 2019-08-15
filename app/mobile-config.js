@@ -76,5 +76,9 @@ App.setPreference("WebAppStartupTimeout", 300000);
 App.appendToConfig(`
   <universal-links>
     <host name="app.quranerkotha.com:443" />
+    <host name="quranerkotha.com:443" />
+
   </universal-links>
+  <access origin="*"/>
+  <allow-navigation href="https://quranerkotha.com/*" />
 `);
