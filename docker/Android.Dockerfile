@@ -25,7 +25,7 @@ ENV ANDROID_BUILD_TOOLS build-tools;27.0.3
 #ENV ANDROID_SDK_FILTER platform-tool,android-27,build-tools-27.0.3
 
 # Gradle version
-ENV GRADLE_VERSION 4.7
+ENV GRADLE_VERSION 4.1
 ENV GRADLE_HOME /usr/local/gradle-${GRADLE_VERSION}
 ENV PATH $PATH:${GRADLE_HOME}/bin
 
@@ -108,7 +108,7 @@ RUN meteor create --full myapp
 WORKDIR /tmp/myapp
 RUN meteor add-platform android 
 RUN bash $SCRIPTS_PATH/meteor_setup.sh
-RUN mkdir -p /tmp/appbuild && meteor build /tmp/appbuild --server http://localhost
+RUN mkdir -p /tmp/appbuild && meteor build --directory /tmp/appbuild --server http://localhost
 RUN rm -rf /tmp/appbuild
 RUN rm -rf /tmp/myapp
 

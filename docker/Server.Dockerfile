@@ -16,7 +16,7 @@ RUN apt-get install -y openjdk-8-jdk wget curl \
 RUN apt-get autoclean && apt-get autoremove 
 
 # Gradle version
-ENV GRADLE_VERSION 5.5.1
+ENV GRADLE_VERSION 4.1
 ENV GRADLE_HOME /usr/local/gradle-${GRADLE_VERSION}
 ENV PATH $PATH:${GRADLE_HOME}/bin
 

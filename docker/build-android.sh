@@ -21,15 +21,14 @@ mkdir -p ${TMP_BUILD_PATH}
 
 cd ${TMP_APP_PATH}
 
-#find ${APP_PATH}/. -not -wholename 'public' -o -not -iname '.meteor'  -exec cp '{}' './{}' ';'
 cp -rd ${APP_PATH}/* ./
 rm -rf ./public || echo "Cannot delete public folder"
 mkdir ./public
 cp -r ${PUBLIC}/* ./public/ || echo "Public content copy failed."
 
 echo "This is how app directory looks like..."
-ls 
-ls ./public/
+ls -la
+ls -la ./public/
 
 echo "Add meteor libraries..."
 meteor create . || echo "Already created"
