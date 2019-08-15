@@ -45,7 +45,7 @@ const ONESIGNAL_KEY = "2dcb7944-fe51-4b86-aee6-0ce5e7809d34";
 
       var ALERT_DELAY = 3000;
       var needToShowAlert = true;
-      needToShowAlert = configureReload(log, needToShowAlert, ALERT_DELAY);
+      //needToShowAlert = configureReload(log, needToShowAlert, ALERT_DELAY);
 
       var iframe = $('#iframe');
 
