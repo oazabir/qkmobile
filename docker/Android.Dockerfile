@@ -25,7 +25,7 @@ ENV ANDROID_BUILD_TOOLS build-tools;27.0.3
 #ENV ANDROID_SDK_FILTER platform-tool,android-27,build-tools-27.0.3
 
 # Gradle version
-ENV GRADLE_VERSION 5.5.1
+ENV GRADLE_VERSION 4.7
 ENV GRADLE_HOME /usr/local/gradle-${GRADLE_VERSION}
 ENV PATH $PATH:${GRADLE_HOME}/bin
 
@@ -70,6 +70,7 @@ WORKDIR $SCRIPTS_PATH
 COPY ./install-node-meteor.sh ./
 COPY ./tar-override.sh ./
 COPY ./tar-restore.sh ./
+COPY ./meteor_setup.sh ./
 
 RUN chmod -R +x .
 
@@ -96,24 +97,20 @@ RUN chown newuser -R $APP_BUILD_PATH
 RUN chown newuser -R $APP_PATH
 RUN chown newuser -R $SCRIPTS_PATH
 RUN chown newuser -R $PUBLIC
-
 RUN chown newuser -R ${GRADLE_HOME}
 
-WORKDIR /usr/local/bin
 
 USER newuser
-
+WORKDIR /tmp
 # Create a test app to download meteor libraries
-RUN cd ${APP_PATH} && meteor create --full myapp 
-RUN cd ${APP_PATH}/myapp && meteor add-platform android
-RUN cd ${APP_PATH}/myapp && meteor add ostrio:loggerconsole && \
-	meteor add ostrio:logger && \
-	meteor add themeteorchef:bert && \
-	meteor add cordova:onesignal-cordova-plugin@2.5.2 && \
-	meteor add cordova:cordova-plugin-statusbar@2.4.3 && \
-	meteor add cordova:cordova-plugin-splashscreen@5.0.3
-RUN cd ${APP_PATH}/myapp && mkdir -p /tmp/appbuild && meteor build /tmp/appbuild --server http://localhost
+RUN meteor create --full myapp 
+
+WORKDIR /tmp/myapp
+RUN meteor add-platform android 
+RUN bash $SCRIPTS_PATH/meteor_setup.sh
+RUN mkdir -p /tmp/appbuild && meteor build /tmp/appbuild --server http://localhost
 RUN rm -rf /tmp/appbuild
+RUN rm -rf /tmp/myapp
 
 # Expose volumes
 VOLUME $APP_BUILD_PATH
@@ -121,7 +118,9 @@ VOLUME $APP_PATH
 VOLUME $PUBLIC
 
 USER root
+WORKDIR /usr/local/bin
 COPY ./build-android.sh ./
-RUN chmod +x ./build-android.sh
+RUN chmod +x ./*.sh
 
 USER newuser
+WORKDIR /usr/local/bin

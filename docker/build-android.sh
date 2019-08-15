@@ -8,6 +8,7 @@ set -e
 : ${KEYSTORE_FILE_PATH:?}
 : ${KEYSTORE_ALIAS:?}
 : ${ANDROID_HOME:?}
+: ${SCRIPTS_PATH:?}
 
 APK_FILE_NAME=${APK_FILE_NAME-"release-signed.apk"}
 TMP_APP_PATH=/tmp/app
@@ -31,15 +32,9 @@ ls
 ls ./public/
 
 echo "Add meteor libraries..."
-meteor create .
-meteor npm install 
-meteor add-platform android || echo "Android is there"
-meteor add ostrio:loggerconsole
-meteor add ostrio:logger
-meteor add themeteorchef:bert
-meteor add cordova:onesignal-cordova-plugin@2.5.2
-meteor add cordova:cordova-plugin-statusbar@2.4.3
-meteor add cordova:cordova-plugin-splashscreen@5.0.3
+meteor create . || echo "Already created"
+meteor add-platform android || echo "Already Android"
+bash ${SCRIPTS_PATH}/meteor_setup.sh
 
 echo "Building Meteor app..."
 

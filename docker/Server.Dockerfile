@@ -33,6 +33,7 @@ WORKDIR $SCRIPTS_PATH
 COPY ./install-node-meteor.sh ./
 COPY ./tar-override.sh ./
 COPY ./tar-restore.sh ./
+COPY ./meteor_setup.sh ./
 
 RUN chmod -R +x .
 
@@ -59,20 +60,15 @@ RUN chown newuser -R $PUBLIC
 
 RUN chown newuser -R ${GRADLE_HOME}
 
-WORKDIR /usr/local/bin
-
 USER newuser
-
+WORKDIR /tmp
 # Create a test app to download meteor libraries
-RUN cd ${APP_PATH} && meteor create myapp 
-RUN cd ${APP_PATH}/myapp && meteor add ostrio:loggerconsole && \
-	meteor add ostrio:logger && \
-	meteor add themeteorchef:bert && \
-	meteor add cordova:onesignal-cordova-plugin@2.5.2 && \
-	meteor add cordova:cordova-plugin-statusbar@2.4.3 && \
-	meteor add cordova:cordova-plugin-splashscreen@5.0.3
-RUN cd ${APP_PATH}/myapp && mkdir -p /tmp/appbuild && meteor build --directory /tmp/appbuild --architecture os.linux.x86_64 --server-only
+RUN meteor create --full myapp 
+WORKDIR /tmp/myapp
+RUN bash $SCRIPTS_PATH/meteor_setup.sh
+RUN mkdir -p /tmp/appbuild && meteor build --directory /tmp/appbuild --architecture os.linux.x86_64 --server-only
 RUN rm -rf /tmp/appbuild
+RUN rm -rf /tmp/myapp
 
 # Expose volumes
 VOLUME $APP_BUILD_PATH
@@ -80,7 +76,10 @@ VOLUME $APP_PATH
 VOLUME $PUBLIC
 
 USER root
+WORKDIR /usr/local/bin
 COPY ./build-server.sh ./
-RUN chmod +x ./build-server.sh
+
+RUN chmod +x ./*.sh
 
 USER newuser
+WORKDIR /usr/local/bin

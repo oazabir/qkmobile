@@ -7,6 +7,7 @@ set -e
 : ${APP_BUILD_PATH:?}
 : ${APP_SERVER:?}
 : ${PORT:?}
+: ${SCRIPTS_PATH:?}
 
 mkdir -p /tmp/app
 mkdir -p /tmp/appbuild
@@ -22,8 +23,8 @@ ls
 ls ./public/
 
 cd /tmp/app
-bash meteor_setup.sh
-meteor npm install --production
+meteor create . || echo "App alreaday created"
+bash ${SCRIPTS_PATH}/meteor_setup.sh
 meteor build --directory /tmp/appbuild --architecture os.linux.x86_64 --server-only
 
 cd /tmp/appbuild/bundle/programs/server
