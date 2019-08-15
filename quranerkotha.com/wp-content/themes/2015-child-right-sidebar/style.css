@@ -327,7 +327,7 @@ ul.small *
 }
 
 .entry-content a:visited {
-    color: gray;
+    color: black;
 }
 
 .entry-title {
@@ -466,7 +466,6 @@ ul.small *
   color: #666;
 }*/
 
-
 .entry-content, .entry-summary, .page-content, .comment-content {
   text-align: justify;
   font-size: 115%;
@@ -482,7 +481,6 @@ ul.small *
 
 .entry-content a { color: cornflowerblue }
 
-a:visited:before {
-	content: "\2713";
-	padding-right: 3px;
+.secondary-toggle {
+  background-color: #AAABF3;
 }
