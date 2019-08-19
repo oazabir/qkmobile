@@ -6,7 +6,7 @@ docker rm -f qkmobile-server
 
 docker run \
     -d \
-    --rm \
+    --restart=always \
     --name qkmobile-server \
     -e APP_SERVER="$APP_SERVER" \
     -e PORT="$PORT" \
