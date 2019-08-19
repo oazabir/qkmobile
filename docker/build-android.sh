@@ -4,11 +4,11 @@ set -e
 
 : ${APP_PATH:?}
 : ${APP_BUILD_PATH:?}
-: ${APP_SERVER:?}
 : ${KEYSTORE_FILE_PATH:?}
 : ${KEYSTORE_ALIAS:?}
 : ${ANDROID_HOME:?}
 : ${SCRIPTS_PATH:?}
+: ${SERVER_URL:?}
 
 APK_FILE_NAME=${APK_FILE_NAME-"release-signed.apk"}
 TMP_APP_PATH=/tmp/app
@@ -37,7 +37,7 @@ bash ${SCRIPTS_PATH}/meteor_setup.sh
 
 echo "Building Meteor app..."
 
-meteor build --directory ${TMP_BUILD_PATH} --server ${APP_SERVER}
+meteor build --directory ${TMP_BUILD_PATH} --server ${SERVER_URL}
 
 cd ${TMP_BUILD_PATH}
 

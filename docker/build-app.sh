@@ -1,4 +1,6 @@
-export APP_SERVER=https://app.quranerkotha.com
+export SERVER_URL=https://app.quranerkotha.com
+export SERVER=app.quranerkotha.com
+export PORT=443
 export KEYSTORE_ALIAS=quranerkotha
 
 rm -rf ../appbuild/*
@@ -16,7 +18,7 @@ docker run \
     -it \
     --rm \
     --name qkmobile-android \
-    -e APP_SERVER="$APP_SERVER" \
+    -e SERVER_URL="$SERVER_URL" \
     -e KEYSTORE_ALIAS="$KEYSTORE_ALIAS" \
     -v "$PWD/../app":/app \
     -v "$PWD/../appbuild":/build \

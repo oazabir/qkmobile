@@ -8,6 +8,7 @@ set -e
 : ${APP_SERVER:?}
 : ${PORT:?}
 : ${SCRIPTS_PATH:?}
+: ${ROOT_URL:?}
 
 mkdir -p /tmp/app
 mkdir -p /tmp/appbuild
@@ -24,11 +25,12 @@ ls ./public/
 
 cd /tmp/app
 meteor create . || echo "App alreaday created"
+meteor add-platform android || echo "Android already added"
 bash ${SCRIPTS_PATH}/meteor_setup.sh
-meteor build --directory /tmp/appbuild --architecture os.linux.x86_64 --server-only
+meteor build --architecture os.linux.x86_64 --server-only --directory /tmp/appbuild 
 
 cd /tmp/appbuild/bundle/programs/server
 npm install --production
 
 cd /tmp/appbuild/bundle
-MONGO_URL=mongodb://localhost:27017/quranerkotha ROOT_URL=${APP_SERVER} PORT=${PORT} node main.js
+MONGO_URL=mongodb://localhost:27017/quranerkotha node main.js

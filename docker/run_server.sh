@@ -1,4 +1,5 @@
-export APP_SERVER=https://app.quranerkotha.com
+export APP_SERVER=app.quranerkotha.com
+export ROOT_URL=https://quranerkotha.com
 export PORT=3000
 
 docker build -f Server.Dockerfile -t qkmobile-server . && \
@@ -10,6 +11,7 @@ docker run \
     --name qkmobile-server \
     -e APP_SERVER="$APP_SERVER" \
     -e PORT="$PORT" \
+    -e ROOT_URL="$ROOT_URL" \
     -v "$PWD/../app":/app \
     -v "$PWD/../appbuild":/build \
     -v "$PWD/../quranerkotha.com":/app/public \

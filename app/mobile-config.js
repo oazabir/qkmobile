@@ -7,7 +7,7 @@ App.info({
   author: 'Omar AL Zabir',
   email: 'omaralzabir@gmail.com',
   website: 'https://quranerkotha.com',
-  version: '1.3.4'
+  version: '1.4.1'
 });
 // Set PhoneGap/Cordova preferences
 App.setPreference('BackgroundColor', '0xffffffff');
@@ -21,7 +21,7 @@ App.icons({
   "iphone_2x": "resources/icons/iphone_2x.png", // 120x120
   "iphone_3x": "resources/icons/iphone_3x.png", // 180x180
   "ipad": "resources/icons/ipad.png", // 76x76
-  "ipad_2x": "resources/icons/ipad_2x.png", // 1.3.452
+  "ipad_2x": "resources/icons/ipad_2x.png", // 1.4.152
   "ipad_pro": "resources/icons/ipad_pro.png", // 167x167
   "ios_settings": "resources/icons/ios_settings.png", // 29x29
   "ios_settings_2x": "resources/icons/ios_settings_2x.png", // 58x58
@@ -81,4 +81,5 @@ App.appendToConfig(`
   </universal-links>
   <access origin="*"/>
   <allow-navigation href="https://quranerkotha.com/*" />
+  <allow-navigation href="https://app.quranerkotha.com/*" />
 `);

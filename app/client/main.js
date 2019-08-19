@@ -32,6 +32,9 @@ const ONESIGNAL_KEY = "2dcb7944-fe51-4b86-aee6-0ce5e7809d34";
       };
 
       setupOneSignal(notificationOpenedCallback, log);
+
+      console.log("Checking for updates...");
+      WebAppLocalServer.checkForUpdates();
     }
 
     if (Meteor.isClient) {
