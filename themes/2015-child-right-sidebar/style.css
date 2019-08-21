@@ -430,30 +430,14 @@ Use it to make something cool, have fun, and share what you've learned with othe
     color: white;
   }
    
-  .display-posts-listing .listing-item:nth-child(3n+0) a { 
-    
-    text-decoration: none;
-    border: none !important;
-  }
    
   .display-posts-listing .listing-item:nth-child(3n+1) {
     background-color: #9CDFA0;
   }
    
-  .display-posts-listing .listing-item:nth-child(3n+1) a {
-    
-    text-decoration: none;
-    border: none !important;
-  }
-   
+  
   .display-posts-listing .listing-item:nth-child(3n+2) {
     background-color: #ffAAAA;
-  }
-   
-  .display-posts-listing .listing-item:nth-child(3n+2) a {
-    
-    text-decoration: none;
-    border: none !important;
   }
   
   
@@ -475,16 +459,22 @@ Use it to make something cool, have fun, and share what you've learned with othe
     font-size: 80%;
   }
   
-  .display-posts-listing .listing-item a {
+  
+  .display-posts-listing .listing-item a:link {
       font-size: 80%;
       color: black;
-      animation: blinker 2s step-start infinite;
+      
+
+    text-decoration: none;
+    border: none !important;
   }
   
   .display-posts-listing .listing-item a:visited {
-      font-size: 80%;
-      color: black;
+      
+      color: gray;
+      
   }
+  
   
   .blink {
     animation: blinker 1s step-start infinite;
@@ -493,6 +483,11 @@ Use it to make something cool, have fun, and share what you've learned with othe
   @keyframes blinker {
     50% {
       opacity: 0.7;
+    }
+  }
+  @keyframes blinker2 {
+    50% {
+      opacity: 1;
     }
   }
   
