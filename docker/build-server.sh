@@ -2,6 +2,7 @@
 
 set -e
 
+: ${APP_ID:?}
 : ${APP_PATH:?}
 : ${PUBLIC:?}
 : ${APP_BUILD_PATH:?}
