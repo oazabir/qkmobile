@@ -37,7 +37,7 @@ bash ${SCRIPTS_PATH}/meteor_setup.sh
 
 echo "Building Meteor app..."
 
-meteor build --directory ${TMP_BUILD_PATH} --server ${SERVER_URL}
+meteor build --directory ${TMP_BUILD_PATH} --server ${SERVER_URL} --mobile-settings mobile-config.js
 
 cd ${TMP_BUILD_PATH}
 

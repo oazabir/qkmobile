@@ -21,7 +21,7 @@ const ONESIGNAL_KEY = "2dcb7944-fe51-4b86-aee6-0ce5e7809d34";
   }
 
   Meteor.startup(function () {
-    console.log("Application startup");
+    console.log("Application startup: " + __meteor_runtime_config__.appId);
     // Initialize Logger:
     log = setupLogger();
 

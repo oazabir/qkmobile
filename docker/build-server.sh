@@ -2,7 +2,6 @@
 
 set -e
 
-: ${APP_ID:?}
 : ${APP_PATH:?}
 : ${PUBLIC:?}
 : ${APP_BUILD_PATH:?}
@@ -28,7 +27,7 @@ cd /tmp/app
 meteor create . || echo "App alreaday created"
 meteor add-platform android || echo "Android already added"
 bash ${SCRIPTS_PATH}/meteor_setup.sh
-meteor build --architecture os.linux.x86_64 --server-only --directory /tmp/appbuild 
+meteor build --architecture os.linux.x86_64 --server-only --directory /tmp/appbuild --mobile-settings mobile-config.js
 
 cd /tmp/appbuild/bundle/programs/server
 npm install --production
