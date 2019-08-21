@@ -1,5 +1,5 @@
 meteor npm install
-meteor npm install --save @babel/runtime@latest
+#meteor npm install --save @babel/runtime@latest
 meteor add ostrio:loggerconsole
 meteor add ostrio:logger
 meteor add themeteorchef:bert

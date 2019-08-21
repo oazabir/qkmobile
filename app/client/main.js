@@ -32,7 +32,7 @@ const ONESIGNAL_KEY = "2dcb7944-fe51-4b86-aee6-0ce5e7809d34";
       };
 
       setupOneSignal(notificationOpenedCallback, log);
-      checkForUpdate();      
+      window.setTimeout(checkForUpdate, 5000);
     }
 
     if (Meteor.isClient) {
@@ -161,7 +161,7 @@ const ONESIGNAL_KEY = "2dcb7944-fe51-4b86-aee6-0ce5e7809d34";
     Bert.alert('নতুন আর্টিকেল এসেছে কিনা দেখছি...', 'info', 'growl-top-right');
     console.log("Checking for updates...");
     WebAppLocalServer.checkForUpdates(function(){      
-        Bert.alert('নতুন আর্টিকেল এসেছে!', 'success', 'growl-bottom-right');
+        //Bert.alert('নতুন আর্টিকেল এসেছে!', 'success', 'growl-bottom-right');
         switchToNewVersion();
     });  
     switchToNewVersion();  
