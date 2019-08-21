@@ -6,8 +6,8 @@ App.info({
   description: 'আধুনিক মানুষের জন্য সমসাময়িক প্রশ্ন, দ্বন্দ্ব এবং ঘটনাগুলোকে কুরআনের আলোকে দেখা এবং কুরআনের আয়াতে লুকিয়ে থাকা বৈজ্ঞানিক তথ্য এবং যুক্তির উপর আলোচনা',
   author: 'Omar AL Zabir',
   email: 'omaralzabir@gmail.com',
-  website: 'https://quranerkotha.com',
-  version: '1.4.1'
+  website: 'https://app.quranerkotha.com',
+  version: '1.4.5'
 });
 // Set PhoneGap/Cordova preferences
 App.setPreference('BackgroundColor', '0xffffffff');
@@ -21,7 +21,7 @@ App.icons({
   "iphone_2x": "resources/icons/iphone_2x.png", // 120x120
   "iphone_3x": "resources/icons/iphone_3x.png", // 180x180
   "ipad": "resources/icons/ipad.png", // 76x76
-  "ipad_2x": "resources/icons/ipad_2x.png", // 1.4.152
+  "ipad_2x": "resources/icons/ipad_2x.png", // 1.4.552
   "ipad_pro": "resources/icons/ipad_pro.png", // 167x167
   "ios_settings": "resources/icons/ios_settings.png", // 29x29
   "ios_settings_2x": "resources/icons/ios_settings_2x.png", // 58x58
@@ -32,15 +32,15 @@ App.icons({
   "ios_notification_2x": "resources/icons/ios_notification_2x.png", // 40x40
   "ios_notification_3x":"resources/icons/ios_notification_3x.png", // 60x60
   "iphone_legacy": "resources/icons/iphone_legacy.png", // 57x57
-  "iphone_legacy_2x": "resources/icons/iphone_legacy_2x.png", // 114x114
+  "iphone_legacy_2x": "resources/icons/iphone_legacy_2x.png", // 1.4.514
   "ipad_spotlight_legacy": "resources/icons/ipad_spotlight_legacy.png", // 50x50
   "ipad_spotlight_legacy_2x": "resources/icons/ipad_spotlight_legacy_2x.png", // 100x100
   "ipad_app_legacy": "resources/icons/ipad_app_legacy.png", // 72x72
-  "ipad_app_legacy_2x": "resources/icons/ipad_app_legacy_2x.png", // 144x144
+  "ipad_app_legacy_2x": "resources/icons/ipad_app_legacy_2x.png", // 1.4.544
   "android_mdpi": "resources/icons/android_mdpi.png", // 48x48
   "android_hdpi": "resources/icons/android_hdpi.png", // 72x72
   "android_xhdpi": "resources/icons/android_xhdpi.png", // 96x96
-  "android_xxhdpi": "resources/icons/android_xxhdpi.png", // 144x144
+  "android_xxhdpi": "resources/icons/android_xxhdpi.png", // 1.4.544
   "android_xxxhdpi": "resources/icons/android_xxxhdpi.png"
 });
 
@@ -76,8 +76,7 @@ App.setPreference("WebAppStartupTimeout", 300000);
 App.appendToConfig(`
   <universal-links>
     <host name="app.quranerkotha.com:443" />
-    <host name="quranerkotha.com:443" />
-
+ 
   </universal-links>
   <access origin="*"/>
   <allow-navigation href="https://quranerkotha.com/*" />
