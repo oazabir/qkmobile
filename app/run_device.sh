@@ -1,1 +1,1 @@
-meteor run android-device --mobile-server https://app.quranerkotha.com
+meteor run android-device --mobile-server https://app.quranerkotha.com 
