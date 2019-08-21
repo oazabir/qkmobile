@@ -163,7 +163,8 @@ const ONESIGNAL_KEY = "2dcb7944-fe51-4b86-aee6-0ce5e7809d34";
     WebAppLocalServer.checkForUpdates(function(){      
         Bert.alert('নতুন আর্টিকেল এসেছে!', 'success', 'growl-bottom-right');
         switchToNewVersion();
-    });    
+    });  
+    switchToNewVersion();  
   }
 
   function switchToNewVersion() {
