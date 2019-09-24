@@ -11,6 +11,9 @@ set -e
 : ${SCRIPTS_PATH:?}
 : ${ROOT_URL:?}
 
+echo "Meteor version (make sure it matches with client)"
+meteor --version
+
 mkdir -p /tmp/app
 mkdir -p /tmp/appbuild
 
@@ -28,7 +31,7 @@ cd /tmp/app
 meteor create . || echo "App alreaday created"
 meteor add-platform android || echo "Android already added"
 bash ${SCRIPTS_PATH}/meteor_setup.sh
-meteor build --architecture os.linux.x86_64 --server-only --directory /tmp/appbuild --mobile-settings mobile-config.js
+meteor build --architecture os.linux.x86_64 --server-only --directory /tmp/appbuild 
 
 cd /tmp/appbuild/bundle/programs/server
 npm install --production

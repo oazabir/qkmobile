@@ -4,98 +4,39 @@ Mobile app to read Quranerkotha.com website offline without internet connection.
 # Features
  - Offline content from quranerkotha.com website. 
  - Push notification to notify about new articles. 
- - App updates itself using latest code pushed on server, using hot code push feature. 
- - Remembers last article. 
+ - App updates itself using latest code pushed on server, using hot code push feature. _[Note: this is currently broken. Trying to fix it.]_
 
-# Getting started - the easy way
+# Getting started 
 
-Get your machine ready with Vagrant. Then just run: ```setup-vagrant.sh```
+Note: I have given up on vagrant. Now you need a Mac. 
 
-Everything will be installed and you will be ready to go. You can then run ```build.sh``` and build .apk file.
+- Install meteor https://www.meteor.com/install
+- Go to app folder and run ```setup_meteor.sh```
+- Install docker.
 
-# USB Debugging
-
-For USB debugging, enable USB 2.0 from Virtual Box settings. 
-
-Add a filter and select your Android phone.
-
-Restart VM. Keep device unplugged. 
-
-Connect device when VM is fully up.
-
-Go to root mode and run ```adb devices```. It should show the device. It might show as unauthorized. Look at your phone and authorize it.
-
-In order to run the app, use ```meteor run android-device```. 
-
-In order to install a built apk file, use ```adb install <filename>```
-
-# Getting started - the hard way
-
-Install meteor.
-
-Clone the repository.
-
-Go inside app directory.
-
-Run ```meteor create .```
-
-Run ```meteor npm install``` inside quranerkotha.app folder. 
-
-Create a symbolic link to ../quranerkotha.com folder to a directory ```public```. If it already exists, remove it first. 
-
-```ln -s ../quranerkotha.com public```
-
-Add android platform. See next section for configuring Android SDK. You need to take some special steps to configure Android SDK with the right set of tools for meteor to work. The standard Android Studio installation or SDK installation does not work for meteor. 
-
-```meteor add-platform android```
-
-Then add the plugins:
+If you want to develop for Android, then
+- Install Android SDK eg ```brew install android-sdk```
+- Install Android Platform tools and build tools
 
 ```
-metoer add cordova:onesignal-cordova-plugin@2.0.11
+export ANDROID_PLATFORM=platforms;android-27
+export ANDROID_BUILD_TOOLS=build-tools;27.0.3
+yes | sdkmanager --licenses
+sdkmanager --update
+sdkmanager "${ANDROID_PLATFORM}"
+sdkmanager "platform-tools"
+sdkmanager "${ANDROID_BUILD_TOOLS}"
+sdkmanager "extras;android;m2repository
+sdkmanager "extras;google;m2repository"
 ```
+- Now you can run ```app/run_device.sh``` after attaching a device to directly launch the app on your mobile device. Make sure you turn on USB Debugging on your mobile device. 
 
-To run on Android device: ```meteor run android-device```
+If you want to build iOS apps, sorry, no idea. 
 
-To run using the app.quranerkotha.com server: ```meteor run android-device --mobile-server https://app.quranerkotha.com/```
+# Building app
 
+- ```docker``` folder contains scripts to build the app for both mobile and server. 
+- ```build-app.sh``` will build the app bundle, sign, and prepare for Google Play Store. You will need the private key from me to publish it on Google Play Store. 
+- ```build-server.sh``` will build the server side, that runs on a server and allows the content updates to be synced to the mobile apps. 
 
-NOTE: Does not work on Windows. File paths are more than 240 characters inside cordova folders and meteor build breaks. You can run locally though and do local development. But build will fail. 
-
-# Configure Android SDK
-
-This requires some special steps to install Android SDK via command line. 
-
-First download the command line tools. 
-
-https://developer.android.com/studio/index.html#command-tools
-
-Create a folder named 'android-sdk'. Then inside that, extract the zip so that you get a tools folder inside it.
-
-
-Then run this from android-sdk/tools folder:
-
-```
-./android update sdk --no-list sdk --all
-```
-
-From the list, find the number for these:
-
- - 1- Android SDK Tools, revision 25.2.5
- - 2- Android SDK Platform-tools, revision 25.0.4
- - 5- Android SDK Build-tools, revision 25.0.2
- - 36- SDK Platform Android 7.0, API 24, revision 2
- - 164- Android Support Repository, revision 47
- - 171- Google Repository, revision 46
- - 164- Android Support Repository, revision 47
- 
-Assuming you have seen the above numbers. Then run this command to install them:
-
-```
-./android update sdk --no-ui --filter 1,2,5,36,164,171
-```
-
-If the numbers were different for you, then make sure you use the correct numbers. 
-
-After this, you will most likely see the tools folder is empty or just have couple of folders. All the files you extracted from the SDK tools are gone. So, you need to extract the zip again, and bring back all the files. 
 

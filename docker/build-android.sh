@@ -14,6 +14,9 @@ APK_FILE_NAME=${APK_FILE_NAME-"release-signed.apk"}
 TMP_APP_PATH=/tmp/app
 TMP_BUILD_PATH=/tmp/build
 
+echo "Meteor version (make sure it matches with server)"
+meteor --version
+
 echo "Launching mobile build..."
 
 mkdir -p ${TMP_APP_PATH}
@@ -36,15 +39,15 @@ meteor add-platform android || echo "Already Android"
 bash ${SCRIPTS_PATH}/meteor_setup.sh
 
 echo "Building Meteor app..."
-
-meteor build --directory ${TMP_BUILD_PATH} --server ${SERVER_URL} --mobile-settings mobile-config.js
+([[ -f mobile-config.js ]] && echo "mobile-config.js found") || (echo "mobile-config.js missing" && exit 1)
+meteor build --directory ${TMP_BUILD_PATH} --server ${SERVER_URL} 
 
 cd ${TMP_BUILD_PATH}
 
 echo "Signing and preparing APK for release..."
 
 APK_UNSIGNED_FILE_NAME=$(find ${TMP_BUILD_PATH} -name *.apk | grep "/release/" | head -n 1)
-
+    
 echo "Found APK at ${APK_UNSIGNED_FILE_NAME}"
 # mv ${APK_UNSIGNED_FILE_NAME} ./
 
