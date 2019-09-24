@@ -40,3 +40,20 @@ If you want to build iOS apps, sorry, no idea.
 - ```build-server.sh``` will build the server side, that runs on a server and allows the content updates to be synced to the mobile apps. 
 
 
+# Folder structure
+
+```
+.
+├── app         -- meteor app code
+├── appbuild    -- build output (.apk generates here)
+├── config      -- ignore
+├── docker      -- docker build scripts
+├── meteor-assets   -- ignore
+├── quranerkotha.com    -- site content
+├── resources   -- icons
+├── server      -- my server stuff
+├── themes      -- css
+└── vagrant     -- deprecated
+```
+
+All you need is app and/or docker folders.
