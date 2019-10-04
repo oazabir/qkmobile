@@ -20,9 +20,9 @@ RUN apt-get autoclean && apt-get autoremove
 
 ENV ANDROID_SDK_URL https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip
 ENV ANDROID_SDK_PATH /android
-ENV ANDROID_PLATFORM platforms;android-27
-ENV ANDROID_BUILD_TOOLS build-tools;27.0.3
-#ENV ANDROID_SDK_FILTER platform-tool,android-27,build-tools-27.0.3
+ENV ANDROID_PLATFORM platforms;android-28
+ENV ANDROID_BUILD_TOOLS build-tools;28.0.3
+#ENV ANDROID_SDK_FILTER platform-tool,android-28,build-tools-28.0.3
 
 # Gradle version
 ENV GRADLE_VERSION 4.1
@@ -93,6 +93,7 @@ RUN mkdir -p $PUBLIC
 
 RUN useradd -ms /bin/bash newuser
 
+RUN chown newuser -R $ANDROID_SDK_PATH
 RUN chown newuser -R $APP_BUILD_PATH
 RUN chown newuser -R $APP_PATH
 RUN chown newuser -R $SCRIPTS_PATH
