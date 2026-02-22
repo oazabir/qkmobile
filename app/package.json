@@ -7,6 +7,6 @@
   "dependencies": {
     "@babel/runtime": "^7.5.5",
     "bert": "^1.0.0",
-    "meteor-node-stubs": "^0.4.1"
+    "meteor-node-stubs": "^1.2.26"
   }
 }
